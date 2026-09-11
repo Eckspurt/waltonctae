@@ -1,0 +1,36 @@
+{
+  "name": "Engineering",
+  "icon": "⚙️",
+  "accent": "#3b5170",
+  "tagline": "Design, prototype, and problem-solve like an engineer.",
+  "description": "The Engineering pathway follows the Project Lead The Way (PLTW) sequence, taking students from foundational design principles through applied engineering problem-solving using industry-standard tools like CAD software.",
+  "instructor": {
+    "name": "TBD",
+    "email": "TBD@cobbk12.org",
+    "room": "TBD"
+  },
+  "pathway": {
+    "name": "Engineering & Technology (PLTW)",
+    "sequence": [
+      {
+        "title": "Introduction to Engineering Design",
+        "grades": "9–10",
+        "desc": "Design process, CAD modeling, and problem-solving fundamentals."
+      },
+      {
+        "title": "Principles of Engineering",
+        "grades": "10–11",
+        "desc": "Core engineering topics applied through hands-on projects."
+      },
+      {
+        "title": "Specialization — Civil Engineering & Architecture / Digital Electronics",
+        "grades": "11–12",
+        "desc": "Choose a focus area to study in depth."
+      }
+    ],
+    "electives": [
+      { "title": "Engineering Design & Development", "grades": "12", "note": "Capstone option" },
+      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
+    ]
+  }
+}

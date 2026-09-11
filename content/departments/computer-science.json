@@ -1,0 +1,36 @@
+{
+  "name": "Computer Science",
+  "icon": "💻",
+  "accent": "#1b6ca8",
+  "tagline": "Learn to think computationally and build real software.",
+  "description": "The Computer Science pathway teaches programming, algorithms, and software development. Students progress from foundational computing concepts through AP-level coursework, building projects that grow in scale and complexity along the way.",
+  "instructor": {
+    "name": "TBD",
+    "email": "TBD@cobbk12.org",
+    "room": "TBD"
+  },
+  "pathway": {
+    "name": "Computer Science",
+    "sequence": [
+      {
+        "title": "Intro to Software Technology",
+        "grades": "9–10",
+        "desc": "Foundational course covering computing concepts and basic programming."
+      },
+      {
+        "title": "AP Computer Science Principles",
+        "grades": "10–11",
+        "desc": "Broad introduction to computer science and its impact, AP-level."
+      },
+      {
+        "title": "AP Computer Science A",
+        "grades": "11–12",
+        "desc": "Java-based programming, data structures, and object-oriented design."
+      }
+    ],
+    "electives": [
+      { "title": "Advanced Data Structures", "grades": "12", "note": "Elective" },
+      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
+    ]
+  }
+}

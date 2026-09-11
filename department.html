@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Pathway | Walton CTAE</title>
+  <meta name="description" id="page-description" content="Course progression pathway — Walton CTAE.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div id="site-header"></div>
+  </header>
+
+  <div id="dept-content"></div>
+
+  <footer class="site-footer">
+    <div id="site-footer"></div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/flowchart.js"></script>
+  <script>
+    (async () => {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("dept");
+    const content = document.getElementById("dept-content");
+
+    if (!slug || !CTAE_DEPARTMENTS.includes(slug)) {
+      await renderSiteChrome(null);
+      content.innerHTML = `
+        <div class="not-found container">
+          <h1>Pathway not found</h1>
+          <p>We couldn't find that CTAE pathway.</p>
+          <a class="btn btn-primary" href="index.html">Back to Home</a>
+        </div>
+      `;
+    } else {
+      const allDepts = await renderSiteChrome(slug);
+      const dept = allDepts[slug];
+
+      document.getElementById("page-title").textContent = dept.name + " | Walton CTAE";
+      document.getElementById("page-description").setAttribute("content", dept.tagline);
+
+      const otherPathways = CTAE_DEPARTMENTS.filter((s) => s !== slug)
+        .map((s) => {
+          const d = allDepts[s];
+          return `<a class="other-pathway-pill" href="department.html?dept=${s}">${d.icon} ${d.name}</a>`;
+        })
+        .join("");
+
+      content.innerHTML = `
+        <section class="hero dept-hero" style="--accent:${dept.accent}">
+          <div class="container">
+            <span class="hero-icon">${dept.icon}</span>
+            <h1>${dept.name}</h1>
+            <p class="lede">${dept.tagline}</p>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <p class="dept-description">${dept.description}</p>
+
+            <div class="instructor-card" style="--accent:${dept.accent}">
+              <div class="instructor-avatar">${dept.instructor.name === "TBD" ? "?" : dept.instructor.name.charAt(0)}</div>
+              <div>
+                <div class="instructor-name">${dept.instructor.name}</div>
+                <div class="instructor-meta">${dept.instructor.room} · ${dept.instructor.email}</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-alt">
+          <div class="container">
+            <h2 class="section-title">Course Progression</h2>
+            <p class="section-lede">Follow the recommended sequence of courses in the ${dept.name} pathway, plus optional electives and capstone experiences.</p>
+            <div class="flowchart-wrap" id="flowchart"></div>
+          </div>
+        </section>
+
+        <section>
+          <div class="container">
+            <h2 class="section-title">Explore Other Pathways</h2>
+            <div class="other-pathways">${otherPathways}</div>
+          </div>
+        </section>
+      `;
+
+      renderFlowchart(document.getElementById("flowchart"), dept.pathway, dept.accent);
+    }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "name": "Healthcare Science",
+  "icon": "🩺",
+  "accent": "#0f9b8e",
+  "tagline": "Get a hands-on start toward a career in healthcare.",
+  "description": "The Healthcare Science pathway introduces students to the medical field through anatomy, patient care, and clinical skills. Students can work toward industry certifications and clinical experience before graduating.",
+  "instructor": {
+    "name": "TBD",
+    "email": "TBD@cobbk12.org",
+    "room": "TBD"
+  },
+  "pathway": {
+    "name": "Healthcare Science",
+    "sequence": [
+      {
+        "title": "Introduction to Healthcare Science",
+        "grades": "9–10",
+        "desc": "Foundational course covering the healthcare industry and career paths."
+      },
+      {
+        "title": "Essentials of Healthcare",
+        "grades": "10–11",
+        "desc": "Anatomy & physiology basics and foundational patient-care skills."
+      },
+      {
+        "title": "Applications of Therapeutic Services",
+        "grades": "11–12",
+        "desc": "Applied clinical skills preparing students for certification."
+      }
+    ],
+    "electives": [
+      { "title": "Certified Nursing Assistant (CNA)", "grades": "12", "note": "Certification option" },
+      { "title": "Clinical Work-Based Learning", "grades": "12", "note": "Capstone option" }
+    ]
+  }
+}

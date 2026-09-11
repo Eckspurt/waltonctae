@@ -1,0 +1,73 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "departments"
+    label: "CTAE Departments"
+    files:
+      - name: "broadcasting"
+        label: "Broadcasting"
+        file: "content/departments/broadcasting.json"
+        fields: &deptFields
+          - { label: "Department Name", name: "name", widget: "string" }
+          - { label: "Icon (emoji)", name: "icon", widget: "string" }
+          - { label: "Accent Color", name: "accent", widget: "color" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - label: "Instructor"
+            name: "instructor"
+            widget: "object"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Room", name: "room", widget: "string" }
+          - label: "Pathway"
+            name: "pathway"
+            widget: "object"
+            fields:
+              - { label: "Pathway Name", name: "name", widget: "string" }
+              - label: "Course Sequence"
+                name: "sequence"
+                widget: "list"
+                summary: "{{title}} (Grades {{grades}})"
+                fields:
+                  - { label: "Course Title", name: "title", widget: "string" }
+                  - { label: "Grades", name: "grades", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+              - label: "Electives & Capstone Options"
+                name: "electives"
+                widget: "list"
+                summary: "{{title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Grades", name: "grades", widget: "string" }
+                  - { label: "Note", name: "note", widget: "string" }
+
+      - name: "business"
+        label: "Business"
+        file: "content/departments/business.json"
+        fields: *deptFields
+
+      - name: "computer-science"
+        label: "Computer Science"
+        file: "content/departments/computer-science.json"
+        fields: *deptFields
+
+      - name: "engineering"
+        label: "Engineering"
+        file: "content/departments/engineering.json"
+        fields: *deptFields
+
+      - name: "graphic-arts"
+        label: "Graphic Arts"
+        file: "content/departments/graphic-arts.json"
+        fields: *deptFields
+
+      - name: "healthcare-science"
+        label: "Healthcare Science"
+        file: "content/departments/healthcare-science.json"
+        fields: *deptFields

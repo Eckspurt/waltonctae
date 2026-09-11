@@ -1,0 +1,36 @@
+{
+  "name": "Graphic Arts",
+  "icon": "🎨",
+  "accent": "#8a3ab9",
+  "tagline": "Turn ideas into visual designs for print and digital media.",
+  "description": "The Graphic Arts pathway teaches visual design principles, typography, and industry-standard design software. Students build a portfolio of print and digital work, from branding projects to publication layouts.",
+  "instructor": {
+    "name": "TBD",
+    "email": "TBD@cobbk12.org",
+    "room": "TBD"
+  },
+  "pathway": {
+    "name": "Graphic Design",
+    "sequence": [
+      {
+        "title": "Intro to Digital Technology",
+        "grades": "9–10",
+        "desc": "Foundational course covering digital media tools and concepts."
+      },
+      {
+        "title": "Graphic Design I",
+        "grades": "10–11",
+        "desc": "Design fundamentals, typography, and layout software."
+      },
+      {
+        "title": "Graphic Design II — Advanced",
+        "grades": "11–12",
+        "desc": "Advanced projects, branding, and portfolio development."
+      }
+    ],
+    "electives": [
+      { "title": "Commercial Photography", "grades": "11–12", "note": "Elective" },
+      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
+    ]
+  }
+}

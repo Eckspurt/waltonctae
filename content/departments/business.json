@@ -1,0 +1,36 @@
+{
+  "name": "Business",
+  "icon": "💼",
+  "accent": "#1c3f6e",
+  "tagline": "Build the skills to manage, market, and launch a business.",
+  "description": "The Business pathway introduces students to management, entrepreneurship, marketing, and finance. Students develop real-world skills through projects, simulations, and opportunities to plan and pitch their own business ideas.",
+  "instructor": {
+    "name": "TBD",
+    "email": "TBD@cobbk12.org",
+    "room": "TBD"
+  },
+  "pathway": {
+    "name": "Business Management & Administration",
+    "sequence": [
+      {
+        "title": "Intro to Business & Technology",
+        "grades": "9–10",
+        "desc": "Foundational course covering business fundamentals and workplace technology."
+      },
+      {
+        "title": "Business Management",
+        "grades": "10–11",
+        "desc": "Principles of managing people, operations, and resources."
+      },
+      {
+        "title": "Advanced Business Management",
+        "grades": "11–12",
+        "desc": "Applied management practice through projects and case studies."
+      }
+    ],
+    "electives": [
+      { "title": "Entrepreneurship", "grades": "11–12", "note": "Elective" },
+      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
+    ]
+  }
+}

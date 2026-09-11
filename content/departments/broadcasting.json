@@ -1,0 +1,36 @@
+{
+  "name": "Broadcasting",
+  "icon": "🎥",
+  "accent": "#c8102e",
+  "tagline": "Tell stories through video, audio, and live production.",
+  "description": "The Broadcasting pathway teaches students to plan, shoot, edit, and deliver video and audio content, from news packages to live broadcasts. Students work hands-on with cameras, editing software, and studio equipment used in real television and streaming production.",
+  "instructor": {
+    "name": "TBD",
+    "email": "TBD@cobbk12.org",
+    "room": "TBD"
+  },
+  "pathway": {
+    "name": "Digital Media: Broadcast Video Production",
+    "sequence": [
+      {
+        "title": "Intro to Digital Technology",
+        "grades": "9–10",
+        "desc": "Foundational course covering digital media tools and concepts."
+      },
+      {
+        "title": "Digital Media: Audio & Video Production I",
+        "grades": "10–11",
+        "desc": "Camera operation, audio capture, and non-linear editing basics."
+      },
+      {
+        "title": "Digital Media: Audio & Video Production II — Broadcast",
+        "grades": "11–12",
+        "desc": "Studio production, live broadcast workflow, and advanced editing."
+      }
+    ],
+    "electives": [
+      { "title": "Advanced Broadcast Production", "grades": "12", "note": "Elective" },
+      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
+    ]
+  }
+}

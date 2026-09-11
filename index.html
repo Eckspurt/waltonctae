@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walton CTAE | Walton High School</title>
+  <meta name="description" content="Career, Technical & Agricultural Education at Walton High School — Broadcasting, Business, Computer Science, Engineering, Graphic Arts, and Healthcare Science.">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div id="site-header"></div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">Walton High School</span>
+      <h1>Walton CTAE</h1>
+      <p class="lede">
+        Career, Technical &amp; Agricultural Education — hands-on pathways that prepare Raiders for college,
+        certification, and career from day one.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#pathways">Explore Pathways</a>
+        <a class="btn btn-secondary" href="#about">About CTAE</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pathways">
+    <div class="container">
+      <h2 class="section-title">Our Pathways</h2>
+      <p class="section-lede">
+        Six career pathways, each building skills from an introductory course through advanced, industry-aligned
+        coursework. Select a pathway to see the full course progression.
+      </p>
+      <div class="dept-grid" id="dept-grid"></div>
+    </div>
+  </section>
+
+  <section id="about" class="section-alt">
+    <div class="container">
+      <h2 class="section-title">About Walton CTAE</h2>
+      <p class="section-lede">
+        The CTAE department at Walton High School gives students a head start on their future — building technical
+        skills, earning industry certifications, and exploring careers before they graduate.
+      </p>
+      <div class="about-grid">
+        <div class="about-stat"><div class="num">6</div><div class="label">Career Pathways</div></div>
+        <div class="about-stat"><div class="num">3+</div><div class="label">Courses per Pathway</div></div>
+        <div class="about-stat"><div class="num">9–12</div><div class="label">Grades Served</div></div>
+        <div class="about-stat"><div class="num">100%</div><div class="label">Hands-On Learning</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div id="site-footer"></div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    (async () => {
+      const allDepts = await renderSiteChrome(null);
+
+      const grid = document.getElementById("dept-grid");
+      grid.innerHTML = CTAE_DEPARTMENTS.map((slug) => {
+        const d = allDepts[slug];
+        return `
+          <a class="dept-card" style="--card-accent:${d.accent}" href="department.html?dept=${slug}">
+            <div class="dept-card-icon">${d.icon}</div>
+            <h3>${d.name}</h3>
+            <p>${d.tagline}</p>
+            <span class="dept-card-link">View Pathway →</span>
+          </a>
+        `;
+      }).join("");
+    })();
+
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>
