@@ -2,10 +2,19 @@
   "name": "Computer Science",
   "icon": "💻",
   "accent": "#1b6ca8",
-  "tagline": "Learn to think computationally and build real software.",
+  "tagline": "Learn to think computationally.",
   "description": "The Computer Science pathway teaches programming, cybersecurity, and networking. Students start with AP Computer Science Principles, then branch into AP Computer Science A and/or AP Cybersecurity before converging on AP Networking.",
   "teachers": [
-    { "name": "Whit Hubbard", "email": "whitney.hubbard@cobbk12.org", "room": "119" }
+    {
+      "name": "Whit Hubbard",
+      "email": "whitney.hubbard@cobbk12.org",
+      "room": "119"
+    },
+    {
+      "name": "Linda Vu",
+      "email": "linda.vu@cobbk12.org",
+      "room": "124"
+    }
   ],
   "pathway": {
     "name": "Computer Science",
@@ -23,8 +32,16 @@
         "title": "AP Computer Science A",
         "grades": "11–12",
         "desc": "Java-based programming, data structures, and object-oriented design.",
-        "teachers": [],
-        "prerequisites": ["AP Computer Science Principles"],
+        "teachers": [
+          {
+            "name": "Whit Hubbard",
+            "email": "whitney.hubbard@cobbk12.org",
+            "room": "119"
+          }
+        ],
+        "prerequisites": [
+          "AP Computer Science Principles"
+        ],
         "prereqLogic": "all",
         "tag": ""
       },
@@ -32,8 +49,16 @@
         "title": "AP Cybersecurity",
         "grades": "12",
         "desc": "AP Cybersecurity trains students in the field and aligns closely with standard first-year collegiate cybersecurity courses.",
-        "teachers": [],
-        "prerequisites": ["AP Computer Science Principles"],
+        "teachers": [
+          {
+            "name": "Whit Hubbard",
+            "email": "whitney.hubbard@cobbk12.org",
+            "room": "119"
+          }
+        ],
+        "prerequisites": [
+          "AP Computer Science Principles"
+        ],
         "prereqLogic": "all",
         "tag": ""
       },
@@ -42,7 +67,10 @@
         "grades": "11–12",
         "desc": "Network design, protocols, and infrastructure, AP-level.",
         "teachers": [],
-        "prerequisites": ["AP Computer Science A", "AP Cybersecurity"],
+        "prerequisites": [
+          "AP Computer Science A",
+          "AP Cybersecurity"
+        ],
         "prereqLogic": "any",
         "tag": ""
       }
