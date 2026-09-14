@@ -342,12 +342,18 @@ section { padding: 64px 0; }
 
 .flowchart-grid {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(var(--levels), minmax(230px, 1fr));
-  grid-auto-rows: auto;
-  column-gap: 72px;
-  row-gap: 28px;
-  align-items: center;
+  display: flex;
+  align-items: stretch;
+  gap: 72px;
+}
+
+.flow-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  flex: 1 1 230px;
+  min-width: 230px;
 }
 
 .flowchart-lines {

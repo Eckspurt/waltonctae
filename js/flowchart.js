@@ -49,13 +49,11 @@ function renderFlowchart(container, pathway, accent) {
     : 0;
   const columns = Array.from({ length: maxLevel + 1 }, () => []);
   courses.forEach((c) => columns[levelCache.get(c.title)].push(c));
-  const maxRows = Math.max(1, ...columns.map((col) => col.length));
 
   const cardsHtml = columns
-    .map((col, li) => {
-      const rowOffset = Math.floor((maxRows - col.length) / 2);
-      return col
-        .map((c, ri) => {
+    .map((col) => {
+      const cardsInCol = col
+        .map((c) => {
           const teachersHtml =
             c.teachers && c.teachers.length
               ? `<div class="flow-card-teachers">Taught by ${c.teachers
@@ -74,8 +72,7 @@ function renderFlowchart(container, pathway, accent) {
             ? `<span class="flow-card-tag">${c.tag}</span>`
             : "";
           return `
-            <div class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}"
-                 style="grid-column:${li + 1}; grid-row:${ri + 1 + rowOffset}">
+            <div class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}">
               ${tagHtml}
               <div class="flow-card-grades">Grades ${c.grades}</div>
               <div class="flow-card-title">${c.title}</div>
@@ -86,13 +83,14 @@ function renderFlowchart(container, pathway, accent) {
           `;
         })
         .join("");
+      return `<div class="flow-column">${cardsInCol}</div>`;
     })
     .join("");
 
   container.innerHTML = `
     <div class="pathway-name">${pathway.name}</div>
     <div class="flowchart-scroll">
-      <div class="flowchart-grid" style="--levels:${maxLevel + 1}; --rows:${maxRows}">
+      <div class="flowchart-grid">
         <svg class="flowchart-lines" aria-hidden="true"></svg>
         ${cardsHtml}
       </div>
