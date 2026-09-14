@@ -141,8 +141,7 @@ function drawConnectors(container, courses) {
       const y1 = fromRect.top - gridRect.top + fromRect.height / 2 + grid.scrollTop;
       const x2 = toRect.left - gridRect.left + grid.scrollLeft;
       const y2 = toRect.top - gridRect.top + toRect.height / 2 + grid.scrollTop;
-      const midX = (x1 + x2) / 2;
-      paths += `<path marker-end="url(#flow-arrowhead)" d="M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}" />`;
+      paths += `<path marker-end="url(#flow-arrowhead)" d="M ${x1} ${y1} L ${x2} ${y2}" />`;
     });
   });
 
