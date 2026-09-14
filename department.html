@@ -54,8 +54,7 @@
       content.innerHTML = `
         <section class="hero dept-hero" style="--accent:${dept.accent}">
           <div class="container">
-            <span class="hero-icon">${dept.icon}</span>
-            <h1>${dept.name}</h1>
+            <h1><span class="hero-icon">${dept.icon}</span>${dept.name}</h1>
             <p class="lede">${dept.tagline}</p>
           </div>
         </section>
@@ -69,7 +68,11 @@
                 .map(
                   (t) => `
                 <div class="teacher-card">
-                  <div class="teacher-avatar">${t.name === "TBD" ? "?" : t.name.charAt(0)}</div>
+                  ${
+                    t.photo
+                      ? `<img class="teacher-avatar-img" src="${t.photo}" alt="${t.name}">`
+                      : `<div class="teacher-avatar">${t.name === "TBD" ? "?" : t.name.charAt(0)}</div>`
+                  }
                   <div>
                     <div class="teacher-name">${t.name}</div>
                     <div class="teacher-meta">${t.room} · ${t.email}</div>

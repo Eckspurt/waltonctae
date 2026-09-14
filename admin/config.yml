@@ -52,10 +52,15 @@ collections:
             widget: "list"
             summary: "{{name}}"
             hint: "Everyone who teaches somewhere in this pathway. Add as many as needed."
-            fields:
+            fields: &teacherFields
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Email", name: "email", widget: "string" }
               - { label: "Room", name: "room", widget: "string" }
+              - label: "Photo"
+                name: "photo"
+                widget: "image"
+                required: false
+                hint: "Optional profile picture. Leave blank to show initials instead."
           - label: "Pathway"
             name: "pathway"
             widget: "object"
@@ -78,10 +83,12 @@ collections:
                     required: false
                     summary: "{{name}}"
                     hint: "Optional — only add someone here if they teach this specific course and aren't already listed as a general Pathway Teacher above."
-                    fields:
-                      - { label: "Name", name: "name", widget: "string" }
-                      - { label: "Email", name: "email", widget: "string" }
-                      - { label: "Room", name: "room", widget: "string" }
+                    fields: *teacherFields
+                  - label: "YouTube Video URL"
+                    name: "videoUrl"
+                    widget: "string"
+                    required: false
+                    hint: "Paste a link like https://www.youtube.com/watch?v=... or https://youtu.be/... Leave blank for no video."
                   - label: "Prerequisites"
                     name: "prerequisites"
                     widget: "list"

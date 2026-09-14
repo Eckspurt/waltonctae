@@ -71,6 +71,14 @@ function renderFlowchart(container, pathway, accent) {
           const tagHtml = c.tag
             ? `<span class="flow-card-tag">${c.tag}</span>`
             : "";
+          const videoId = c.videoUrl ? youTubeIdFromUrl(c.videoUrl) : null;
+          const videoHtml = videoId
+            ? `<div class="flow-card-video">
+                 <iframe src="https://www.youtube.com/embed/${videoId}" title="${c.title} video"
+                         loading="lazy" allowfullscreen
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+               </div>`
+            : "";
           return `
             <div class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}">
               ${tagHtml}
@@ -79,6 +87,7 @@ function renderFlowchart(container, pathway, accent) {
               <div class="flow-card-desc">${c.desc}</div>
               ${teachersHtml}
               ${prereqHtml}
+              ${videoHtml}
             </div>
           `;
         })
@@ -144,6 +153,13 @@ function drawConnectors(container, courses) {
   });
 
   svg.innerHTML = paths;
+}
+
+function youTubeIdFromUrl(url) {
+  const match = url.match(
+    /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/
+  );
+  return match ? match[1] : null;
 }
 
 function debounce(fn, wait) {
