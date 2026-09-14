@@ -4,33 +4,57 @@
   "accent": "#c8102e",
   "tagline": "Tell stories through video, audio, and live production.",
   "description": "The Broadcasting pathway teaches students to plan, shoot, edit, and deliver video and audio content, from news packages to live broadcasts. Students work hands-on with cameras, editing software, and studio equipment used in real television and streaming production.",
-  "instructor": {
-    "name": "TBD",
-    "email": "TBD@cobbk12.org",
-    "room": "TBD"
-  },
+  "teachers": [
+    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" }
+  ],
   "pathway": {
     "name": "Digital Media: Broadcast Video Production",
-    "sequence": [
+    "courses": [
       {
         "title": "Intro to Digital Technology",
         "grades": "9–10",
-        "desc": "Foundational course covering digital media tools and concepts."
+        "desc": "Foundational course covering digital media tools and concepts.",
+        "teachers": [],
+        "prerequisites": [],
+        "prereqLogic": "all",
+        "tag": ""
       },
       {
         "title": "Digital Media: Audio & Video Production I",
         "grades": "10–11",
-        "desc": "Camera operation, audio capture, and non-linear editing basics."
+        "desc": "Camera operation, audio capture, and non-linear editing basics.",
+        "teachers": [],
+        "prerequisites": ["Intro to Digital Technology"],
+        "prereqLogic": "all",
+        "tag": ""
       },
       {
         "title": "Digital Media: Audio & Video Production II — Broadcast",
         "grades": "11–12",
-        "desc": "Studio production, live broadcast workflow, and advanced editing."
+        "desc": "Studio production, live broadcast workflow, and advanced editing.",
+        "teachers": [],
+        "prerequisites": ["Digital Media: Audio & Video Production I"],
+        "prereqLogic": "all",
+        "tag": ""
+      },
+      {
+        "title": "Advanced Broadcast Production",
+        "grades": "12",
+        "desc": "Independent and small-group broadcast projects at an advanced level.",
+        "teachers": [],
+        "prerequisites": ["Digital Media: Audio & Video Production II — Broadcast"],
+        "prereqLogic": "all",
+        "tag": "Elective"
+      },
+      {
+        "title": "Work-Based Learning",
+        "grades": "12",
+        "desc": "Paid or unpaid placement with a local media/broadcast employer.",
+        "teachers": [],
+        "prerequisites": ["Digital Media: Audio & Video Production II — Broadcast"],
+        "prereqLogic": "all",
+        "tag": "Capstone option"
       }
-    ],
-    "electives": [
-      { "title": "Advanced Broadcast Production", "grades": "12", "note": "Elective" },
-      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
     ]
   }
 }

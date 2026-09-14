@@ -4,33 +4,57 @@
   "accent": "#1c3f6e",
   "tagline": "Build the skills to manage, market, and launch a business.",
   "description": "The Business pathway introduces students to management, entrepreneurship, marketing, and finance. Students develop real-world skills through projects, simulations, and opportunities to plan and pitch their own business ideas.",
-  "instructor": {
-    "name": "TBD",
-    "email": "TBD@cobbk12.org",
-    "room": "TBD"
-  },
+  "teachers": [
+    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" }
+  ],
   "pathway": {
     "name": "Business Management & Administration",
-    "sequence": [
+    "courses": [
       {
         "title": "Intro to Business & Technology",
         "grades": "9–10",
-        "desc": "Foundational course covering business fundamentals and workplace technology."
+        "desc": "Foundational course covering business fundamentals and workplace technology.",
+        "teachers": [],
+        "prerequisites": [],
+        "prereqLogic": "all",
+        "tag": ""
       },
       {
         "title": "Business Management",
         "grades": "10–11",
-        "desc": "Principles of managing people, operations, and resources."
+        "desc": "Principles of managing people, operations, and resources.",
+        "teachers": [],
+        "prerequisites": ["Intro to Business & Technology"],
+        "prereqLogic": "all",
+        "tag": ""
       },
       {
         "title": "Advanced Business Management",
         "grades": "11–12",
-        "desc": "Applied management practice through projects and case studies."
+        "desc": "Applied management practice through projects and case studies.",
+        "teachers": [],
+        "prerequisites": ["Business Management"],
+        "prereqLogic": "all",
+        "tag": ""
+      },
+      {
+        "title": "Entrepreneurship",
+        "grades": "11–12",
+        "desc": "Plan, pitch, and prototype a student business idea.",
+        "teachers": [],
+        "prerequisites": ["Business Management"],
+        "prereqLogic": "all",
+        "tag": "Elective"
+      },
+      {
+        "title": "Work-Based Learning",
+        "grades": "12",
+        "desc": "Paid or unpaid placement with a local business employer.",
+        "teachers": [],
+        "prerequisites": ["Advanced Business Management"],
+        "prereqLogic": "all",
+        "tag": "Capstone option"
       }
-    ],
-    "electives": [
-      { "title": "Entrepreneurship", "grades": "11–12", "note": "Elective" },
-      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
     ]
   }
 }

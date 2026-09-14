@@ -47,9 +47,11 @@ collections:
           - { label: "Accent Color", name: "accent", widget: "color" }
           - { label: "Tagline", name: "tagline", widget: "string" }
           - { label: "Description", name: "description", widget: "text" }
-          - label: "Instructor"
-            name: "instructor"
-            widget: "object"
+          - label: "Pathway Teachers"
+            name: "teachers"
+            widget: "list"
+            summary: "{{name}}"
+            hint: "Everyone who teaches somewhere in this pathway. Add as many as needed."
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Email", name: "email", widget: "string" }
@@ -59,22 +61,45 @@ collections:
             widget: "object"
             fields:
               - { label: "Pathway Name", name: "name", widget: "string" }
-              - label: "Course Sequence"
-                name: "sequence"
+              - label: "Courses"
+                name: "courses"
                 widget: "list"
                 summary: "{{title}} (Grades {{grades}})"
                 fields:
-                  - { label: "Course Title", name: "title", widget: "string" }
+                  - label: "Course Title"
+                    name: "title"
+                    widget: "string"
+                    hint: "Must be unique within this pathway — other courses refer to it by this exact title as a prerequisite."
                   - { label: "Grades", name: "grades", widget: "string" }
                   - { label: "Description", name: "desc", widget: "text" }
-              - label: "Electives & Capstone Options"
-                name: "electives"
-                widget: "list"
-                summary: "{{title}}"
-                fields:
-                  - { label: "Title", name: "title", widget: "string" }
-                  - { label: "Grades", name: "grades", widget: "string" }
-                  - { label: "Note", name: "note", widget: "string" }
+                  - label: "Teachers for this course"
+                    name: "teachers"
+                    widget: "list"
+                    required: false
+                    summary: "{{name}}"
+                    hint: "Optional — only add someone here if they teach this specific course and aren't already listed as a general Pathway Teacher above."
+                    fields:
+                      - { label: "Name", name: "name", widget: "string" }
+                      - { label: "Email", name: "email", widget: "string" }
+                      - { label: "Room", name: "room", widget: "string" }
+                  - label: "Prerequisites"
+                    name: "prerequisites"
+                    widget: "list"
+                    required: false
+                    hint: "Type the exact title of each course from this pathway that must be completed first. Leave empty if there's no prerequisite."
+                  - label: "If more than one prerequisite, are they..."
+                    name: "prereqLogic"
+                    widget: "select"
+                    required: false
+                    default: "all"
+                    options:
+                      - { label: "All required", value: "all" }
+                      - { label: "Any one of them", value: "any" }
+                  - label: "Tag (optional badge)"
+                    name: "tag"
+                    widget: "string"
+                    required: false
+                    hint: "e.g. Elective, Capstone option, Certification option"
 
       - name: "business"
         label: "Business"

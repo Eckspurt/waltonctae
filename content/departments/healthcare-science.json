@@ -4,33 +4,57 @@
   "accent": "#0f9b8e",
   "tagline": "Get a hands-on start toward a career in healthcare.",
   "description": "The Healthcare Science pathway introduces students to the medical field through anatomy, patient care, and clinical skills. Students can work toward industry certifications and clinical experience before graduating.",
-  "instructor": {
-    "name": "TBD",
-    "email": "TBD@cobbk12.org",
-    "room": "TBD"
-  },
+  "teachers": [
+    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" }
+  ],
   "pathway": {
     "name": "Healthcare Science",
-    "sequence": [
+    "courses": [
       {
         "title": "Introduction to Healthcare Science",
         "grades": "9–10",
-        "desc": "Foundational course covering the healthcare industry and career paths."
+        "desc": "Foundational course covering the healthcare industry and career paths.",
+        "teachers": [],
+        "prerequisites": [],
+        "prereqLogic": "all",
+        "tag": ""
       },
       {
         "title": "Essentials of Healthcare",
         "grades": "10–11",
-        "desc": "Anatomy & physiology basics and foundational patient-care skills."
+        "desc": "Anatomy & physiology basics and foundational patient-care skills.",
+        "teachers": [],
+        "prerequisites": ["Introduction to Healthcare Science"],
+        "prereqLogic": "all",
+        "tag": ""
       },
       {
         "title": "Applications of Therapeutic Services",
         "grades": "11–12",
-        "desc": "Applied clinical skills preparing students for certification."
+        "desc": "Applied clinical skills preparing students for certification.",
+        "teachers": [],
+        "prerequisites": ["Essentials of Healthcare"],
+        "prereqLogic": "all",
+        "tag": ""
+      },
+      {
+        "title": "Certified Nursing Assistant (CNA)",
+        "grades": "12",
+        "desc": "State certification coursework and clinical hours.",
+        "teachers": [],
+        "prerequisites": ["Applications of Therapeutic Services"],
+        "prereqLogic": "all",
+        "tag": "Certification option"
+      },
+      {
+        "title": "Clinical Work-Based Learning",
+        "grades": "12",
+        "desc": "Supervised clinical placement with a local healthcare employer.",
+        "teachers": [],
+        "prerequisites": ["Applications of Therapeutic Services"],
+        "prereqLogic": "all",
+        "tag": "Capstone option"
       }
-    ],
-    "electives": [
-      { "title": "Certified Nursing Assistant (CNA)", "grades": "12", "note": "Certification option" },
-      { "title": "Clinical Work-Based Learning", "grades": "12", "note": "Capstone option" }
     ]
   }
 }

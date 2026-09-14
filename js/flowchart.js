@@ -5,61 +5,154 @@
   pathway shape:
   {
     name: "Pathway name",
-    sequence: [ {id, title, grades, desc}, ... ],   // main left-to-right progression
-    electives: [ {id, title, grades, note}, ... ]   // optional add-ons / capstones
+    courses: [
+      {
+        title, grades, desc,
+        teachers: [{name, email, room}, ...],   // optional, course-specific
+        prerequisites: ["Course Title", ...],    // titles of other courses in this list
+        prereqLogic: "all" | "any",              // only matters when >1 prerequisite
+        tag: "Elective" | "Capstone option" | ...  // optional small badge
+      },
+      ...
+    ]
   }
+
+  Course levels (columns) are derived from the prerequisite graph rather
+  than a fixed order, so branches (e.g. two courses that both unlock a
+  later one) lay out correctly left-to-right.
 */
 
 function renderFlowchart(container, pathway, accent) {
   container.style.setProperty("--accent", accent);
 
-  const sequenceHtml = pathway.sequence
-    .map((course, i) => {
-      const arrow =
-        i < pathway.sequence.length - 1
-          ? `<div class="flow-arrow" aria-hidden="true">
-               <svg viewBox="0 0 24 24" width="28" height="28">
-                 <path d="M4 12h14m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"
-                       stroke-linecap="round" stroke-linejoin="round"/>
-               </svg>
-             </div>`
-          : "";
-      return `
-        <div class="flow-step">
-          <div class="flow-node">
-            <div class="flow-node-badge">${i + 1}</div>
-            <div class="flow-node-grades">Grades ${course.grades}</div>
-            <div class="flow-node-title">${course.title}</div>
-            <div class="flow-node-desc">${course.desc}</div>
-          </div>
-        </div>
-        ${arrow}
-      `;
-    })
-    .join("");
+  const courses = pathway.courses || [];
+  const byTitle = new Map(courses.map((c) => [c.title, c]));
 
-  const electivesHtml = (pathway.electives || [])
-    .map(
-      (item) => `
-        <div class="elective-chip">
-          <div class="elective-title">${item.title}</div>
-          <div class="elective-meta">${item.note} · Grade ${item.grades}</div>
-        </div>
-      `
-    )
+  const levelCache = new Map();
+  function levelOf(course, stack) {
+    if (levelCache.has(course.title)) return levelCache.get(course.title);
+    if (stack.has(course.title)) return 0; // guard against circular prerequisites
+    stack.add(course.title);
+    const prereqs = (course.prerequisites || [])
+      .map((t) => byTitle.get(t))
+      .filter(Boolean);
+    const level = prereqs.length
+      ? 1 + Math.max(...prereqs.map((p) => levelOf(p, stack)))
+      : 0;
+    levelCache.set(course.title, level);
+    return level;
+  }
+  courses.forEach((c) => levelOf(c, new Set()));
+
+  const maxLevel = courses.length
+    ? Math.max(...courses.map((c) => levelCache.get(c.title)))
+    : 0;
+  const columns = Array.from({ length: maxLevel + 1 }, () => []);
+  courses.forEach((c) => columns[levelCache.get(c.title)].push(c));
+  const maxRows = Math.max(1, ...columns.map((col) => col.length));
+
+  const cardsHtml = columns
+    .map((col, li) => {
+      const rowOffset = Math.floor((maxRows - col.length) / 2);
+      return col
+        .map((c, ri) => {
+          const teachersHtml =
+            c.teachers && c.teachers.length
+              ? `<div class="flow-card-teachers">Taught by ${c.teachers
+                  .map((t) => t.name)
+                  .join(", ")}</div>`
+              : "";
+          const prereqHtml =
+            c.prerequisites && c.prerequisites.length
+              ? `<div class="flow-card-prereq">Requires ${
+                  c.prereqLogic === "any" && c.prerequisites.length > 1
+                    ? c.prerequisites.join(" or ")
+                    : c.prerequisites.join(" + ")
+                }</div>`
+              : "";
+          const tagHtml = c.tag
+            ? `<span class="flow-card-tag">${c.tag}</span>`
+            : "";
+          return `
+            <div class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}"
+                 style="grid-column:${li + 1}; grid-row:${ri + 1 + rowOffset}">
+              ${tagHtml}
+              <div class="flow-card-grades">Grades ${c.grades}</div>
+              <div class="flow-card-title">${c.title}</div>
+              <div class="flow-card-desc">${c.desc}</div>
+              ${teachersHtml}
+              ${prereqHtml}
+            </div>
+          `;
+        })
+        .join("");
+    })
     .join("");
 
   container.innerHTML = `
     <div class="pathway-name">${pathway.name}</div>
-    <div class="flow-sequence">${sequenceHtml}</div>
-    ${
-      pathway.electives && pathway.electives.length
-        ? `<div class="electives-section">
-             <div class="electives-connector" aria-hidden="true"></div>
-             <div class="electives-label">Electives &amp; Capstone Options</div>
-             <div class="electives-row">${electivesHtml}</div>
-           </div>`
-        : ""
-    }
+    <div class="flowchart-scroll">
+      <div class="flowchart-grid" style="--levels:${maxLevel + 1}; --rows:${maxRows}">
+        <svg class="flowchart-lines" aria-hidden="true"></svg>
+        ${cardsHtml}
+      </div>
+    </div>
   `;
+
+  drawConnectors(container, courses);
+  const redraw = () => drawConnectors(container, courses);
+  window.addEventListener("resize", debounce(redraw, 150));
+}
+
+function drawConnectors(container, courses) {
+  const grid = container.querySelector(".flowchart-grid");
+  const svg = container.querySelector(".flowchart-lines");
+  if (!grid || !svg) return;
+
+  const elByTitle = new Map();
+  grid.querySelectorAll(".flow-card").forEach((el) => {
+    elByTitle.set(el.dataset.title, el);
+  });
+
+  const gridRect = grid.getBoundingClientRect();
+  const width = grid.scrollWidth;
+  const height = grid.scrollHeight;
+  svg.setAttribute("width", width);
+  svg.setAttribute("height", height);
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+
+  let paths = `
+    <defs>
+      <marker id="flow-arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" />
+      </marker>
+    </defs>
+  `;
+
+  courses.forEach((c) => {
+    const toEl = elByTitle.get(c.title);
+    if (!toEl) return;
+    (c.prerequisites || []).forEach((prereqTitle) => {
+      const fromEl = elByTitle.get(prereqTitle);
+      if (!fromEl) return;
+      const fromRect = fromEl.getBoundingClientRect();
+      const toRect = toEl.getBoundingClientRect();
+      const x1 = fromRect.right - gridRect.left + grid.scrollLeft;
+      const y1 = fromRect.top - gridRect.top + fromRect.height / 2 + grid.scrollTop;
+      const x2 = toRect.left - gridRect.left + grid.scrollLeft;
+      const y2 = toRect.top - gridRect.top + toRect.height / 2 + grid.scrollTop;
+      const midX = (x1 + x2) / 2;
+      paths += `<path marker-end="url(#flow-arrowhead)" d="M ${x1} ${y1} C ${midX} ${y1}, ${midX} ${y2}, ${x2} ${y2}" />`;
+    });
+  });
+
+  svg.innerHTML = paths;
+}
+
+function debounce(fn, wait) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), wait);
+  };
 }

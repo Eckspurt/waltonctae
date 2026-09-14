@@ -3,34 +3,49 @@
   "icon": "💻",
   "accent": "#1b6ca8",
   "tagline": "Learn to think computationally and build real software.",
-  "description": "The Computer Science pathway teaches programming, algorithms, and software development. Students progress from foundational computing concepts through AP-level coursework, building projects that grow in scale and complexity along the way.",
-  "instructor": {
-    "name": "TBD",
-    "email": "TBD@cobbk12.org",
-    "room": "TBD"
-  },
+  "description": "The Computer Science pathway teaches programming, cybersecurity, and networking. Students start with AP Computer Science Principles, then branch into AP Computer Science A and/or AP Cybersecurity before converging on AP Networking.",
+  "teachers": [
+    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" }
+  ],
   "pathway": {
     "name": "Computer Science",
-    "sequence": [
-      {
-        "title": "Intro to Software Technology",
-        "grades": "9–10",
-        "desc": "Foundational course covering computing concepts and basic programming."
-      },
+    "courses": [
       {
         "title": "AP Computer Science Principles",
-        "grades": "10–11",
-        "desc": "Broad introduction to computer science and its impact, AP-level."
+        "grades": "9–10",
+        "desc": "Broad introduction to computer science and its impact, AP-level.",
+        "teachers": [],
+        "prerequisites": [],
+        "prereqLogic": "all",
+        "tag": ""
       },
       {
         "title": "AP Computer Science A",
+        "grades": "10–12",
+        "desc": "Java-based programming, data structures, and object-oriented design.",
+        "teachers": [],
+        "prerequisites": ["AP Computer Science Principles"],
+        "prereqLogic": "all",
+        "tag": ""
+      },
+      {
+        "title": "AP Cybersecurity",
+        "grades": "10–12",
+        "desc": "Principles of securing systems, networks, and data.",
+        "teachers": [],
+        "prerequisites": ["AP Computer Science Principles"],
+        "prereqLogic": "all",
+        "tag": ""
+      },
+      {
+        "title": "AP Networking",
         "grades": "11–12",
-        "desc": "Java-based programming, data structures, and object-oriented design."
+        "desc": "Network design, protocols, and infrastructure, AP-level.",
+        "teachers": [],
+        "prerequisites": ["AP Computer Science A", "AP Cybersecurity"],
+        "prereqLogic": "any",
+        "tag": ""
       }
-    ],
-    "electives": [
-      { "title": "Advanced Data Structures", "grades": "12", "note": "Elective" },
-      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
     ]
   }
 }
