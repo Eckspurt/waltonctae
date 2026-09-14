@@ -73,13 +73,9 @@ header.site-header {
 }
 
 .nav-brand-mark {
-  background: var(--red);
-  color: var(--white);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  padding: 4px 7px;
-  border-radius: 6px;
+  height: 34px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {

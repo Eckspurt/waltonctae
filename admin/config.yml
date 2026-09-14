@@ -25,8 +25,8 @@ auth:
   last_name_claim: last_name
   avatar_url_claim: avatar_url
 
-# Better Decap + Bridge logo (optional)
-logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+# Walton CTAE logo on the CMS login screen (optional)
+logo_url: https://waltonctae.netlify.app/images/uploads/logo.png
 
 # Add site links in Decap CMS (optional)
 site_url: https://waltonctae.netlify.app

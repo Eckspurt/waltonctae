@@ -23,7 +23,7 @@ async function renderSiteChrome(activeSlug) {
     header.innerHTML = `
       <div class="nav-wrap">
         <a class="nav-brand" href="index.html">
-          <span class="nav-brand-mark">WHS</span>
+          <img class="nav-brand-mark" src="/images/uploads/logo.png" alt="Walton CTAE logo">
           <span class="nav-brand-text">Walton CTAE</span>
         </a>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
