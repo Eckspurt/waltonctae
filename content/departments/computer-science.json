@@ -5,14 +5,14 @@
   "tagline": "Learn to think computationally and build real software.",
   "description": "The Computer Science pathway teaches programming, cybersecurity, and networking. Students start with AP Computer Science Principles, then branch into AP Computer Science A and/or AP Cybersecurity before converging on AP Networking.",
   "teachers": [
-    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" }
+    { "name": "Whit Hubbard", "email": "whitney.hubbard@cobbk12.org", "room": "119" }
   ],
   "pathway": {
     "name": "Computer Science",
     "courses": [
       {
         "title": "AP Computer Science Principles",
-        "grades": "9–10",
+        "grades": "10–12",
         "desc": "Broad introduction to computer science and its impact, AP-level.",
         "teachers": [],
         "prerequisites": [],
@@ -21,7 +21,7 @@
       },
       {
         "title": "AP Computer Science A",
-        "grades": "10–12",
+        "grades": "11–12",
         "desc": "Java-based programming, data structures, and object-oriented design.",
         "teachers": [],
         "prerequisites": ["AP Computer Science Principles"],
@@ -30,8 +30,8 @@
       },
       {
         "title": "AP Cybersecurity",
-        "grades": "10–12",
-        "desc": "Principles of securing systems, networks, and data.",
+        "grades": "12",
+        "desc": "AP Cybersecurity trains students in the field and aligns closely with standard first-year collegiate cybersecurity courses.",
         "teachers": [],
         "prerequisites": ["AP Computer Science Principles"],
         "prereqLogic": "all",
