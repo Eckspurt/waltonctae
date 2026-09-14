@@ -5,32 +5,40 @@
   "tagline": "Learn to think computationally and build real software.",
   "description": "The Computer Science pathway teaches programming, algorithms, and software development. Students progress from foundational computing concepts through AP-level coursework, building projects that grow in scale and complexity along the way.",
   "instructor": {
-    "name": "TBD",
-    "email": "TBD@cobbk12.org",
-    "room": "TBD"
+    "name": "Whit Hubbard",
+    "email": "whitney.hubbard@cobbk12.org",
+    "room": "119"
   },
   "pathway": {
     "name": "Computer Science",
     "sequence": [
       {
-        "title": "Intro to Software Technology",
-        "grades": "9–10",
-        "desc": "Foundational course covering computing concepts and basic programming."
-      },
-      {
         "title": "AP Computer Science Principles",
-        "grades": "10–11",
+        "grades": "10–12",
         "desc": "Broad introduction to computer science and its impact, AP-level."
       },
       {
         "title": "AP Computer Science A",
-        "grades": "11–12",
+        "grades": "11-12",
         "desc": "Java-based programming, data structures, and object-oriented design."
+      },
+      {
+        "title": "AP Cybersecurity",
+        "grades": "12",
+        "desc": "AP Cybersecurity trains students in the field and aligns closely with standard first-year collegiate cybersecurity courses."
       }
     ],
     "electives": [
-      { "title": "Advanced Data Structures", "grades": "12", "note": "Elective" },
-      { "title": "Work-Based Learning", "grades": "12", "note": "Capstone option" }
+      {
+        "title": "Advanced Data Structures",
+        "grades": "12",
+        "note": "Elective"
+      },
+      {
+        "title": "Work-Based Learning",
+        "grades": "12",
+        "note": "Capstone option"
+      }
     ]
   }
 }
