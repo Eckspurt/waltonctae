@@ -21,6 +21,10 @@ html, body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
@@ -359,9 +363,9 @@ section { padding: 64px 0; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 28px;
-  flex: 1 1 260px;
-  min-width: 260px;
+  gap: 20px;
+  flex: 1 1 200px;
+  min-width: 200px;
 }
 
 .flowchart-lines {
@@ -389,12 +393,21 @@ section { padding: 64px 0; }
 .flow-card {
   position: relative;
   z-index: 1;
+  display: block;
   background: var(--white);
   border: 1px solid var(--border);
   border-top: 4px solid var(--accent);
   border-radius: 10px;
-  padding: 16px;
+  padding: 14px 16px;
   box-shadow: 0 2px 10px rgba(10, 31, 68, 0.08);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.flow-card:hover,
+.flow-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(10, 31, 68, 0.14);
 }
 
 .flow-card-tag {
@@ -423,39 +436,86 @@ section { padding: 64px 0; }
 .flow-card-title {
   font-weight: 700;
   font-size: 0.98rem;
-  margin-bottom: 6px;
 }
 
-.flow-card-desc {
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  margin-bottom: 8px;
+/* ---------- Course details ---------- */
+.course-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.flow-card-teachers {
-  font-size: 0.78rem;
+.course-detail {
+  --accent: var(--red);
+  scroll-margin-top: 88px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  box-shadow: var(--shadow);
+}
+
+.course-detail h3 {
+  margin: 4px 0 10px;
+  font-size: 1.15rem;
+}
+
+.course-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.course-detail-grades {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.course-detail-tag {
+  background: var(--accent);
+  color: var(--white);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.course-detail-desc {
   color: var(--ink-soft);
+  max-width: 720px;
+}
+
+.course-detail-teachers {
+  font-size: 0.9rem;
   font-weight: 600;
+  margin-top: 4px;
 }
 
-.flow-card-prereq {
-  font-size: 0.76rem;
+.course-detail-prereq {
+  font-size: 0.88rem;
   color: var(--ink-soft);
   font-style: italic;
   margin-top: 4px;
 }
 
-.flow-card-video {
+.course-detail-video {
   position: relative;
   width: 100%;
+  max-width: 560px;
   aspect-ratio: 16 / 9;
-  margin-top: 10px;
-  border-radius: 6px;
+  margin-top: 16px;
+  border-radius: 8px;
   overflow: hidden;
   background: var(--navy-dark);
 }
 
-.flow-card-video iframe {
+.course-detail-video iframe {
   position: absolute;
   top: 0;
   left: 0;

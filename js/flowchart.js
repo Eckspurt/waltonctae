@@ -54,41 +54,16 @@ function renderFlowchart(container, pathway, accent) {
     .map((col) => {
       const cardsInCol = col
         .map((c) => {
-          const teachersHtml =
-            c.teachers && c.teachers.length
-              ? `<div class="flow-card-teachers">Taught by ${c.teachers
-                  .map((t) => t.name)
-                  .join(", ")}</div>`
-              : "";
-          const prereqHtml =
-            c.prerequisites && c.prerequisites.length
-              ? `<div class="flow-card-prereq">Requires ${
-                  c.prereqLogic === "any" && c.prerequisites.length > 1
-                    ? c.prerequisites.join(" or ")
-                    : c.prerequisites.join(" + ")
-                }</div>`
-              : "";
           const tagHtml = c.tag
             ? `<span class="flow-card-tag">${c.tag}</span>`
             : "";
-          const videoId = c.videoUrl ? youTubeIdFromUrl(c.videoUrl) : null;
-          const videoHtml = videoId
-            ? `<div class="flow-card-video">
-                 <iframe src="https://www.youtube.com/embed/${videoId}" title="${c.title} video"
-                         loading="lazy" allowfullscreen
-                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-               </div>`
-            : "";
           return `
-            <div class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}">
+            <a class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}"
+               href="#course-${slugify(c.title)}">
               ${tagHtml}
               <div class="flow-card-grades">Grades ${c.grades}</div>
               <div class="flow-card-title">${c.title}</div>
-              <div class="flow-card-desc">${c.desc}</div>
-              ${teachersHtml}
-              ${prereqHtml}
-              ${videoHtml}
-            </div>
+            </a>
           `;
         })
         .join("");

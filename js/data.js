@@ -38,3 +38,11 @@ async function loadAllDepartments() {
   );
   return Object.fromEntries(entries);
 }
+
+// Turns a course title into a URL-safe anchor id, e.g. "AP Computer Science A" -> "ap-computer-science-a"
+function slugify(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}

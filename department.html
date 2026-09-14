@@ -51,6 +51,49 @@
         })
         .join("");
 
+      const courseDetailsHtml = (dept.pathway.courses || [])
+        .map((c) => {
+          const teachersHtml =
+            c.teachers && c.teachers.length
+              ? `<div class="course-detail-teachers">Taught by ${c.teachers
+                  .map((t) => t.name)
+                  .join(", ")}</div>`
+              : "";
+          const prereqHtml =
+            c.prerequisites && c.prerequisites.length
+              ? `<div class="course-detail-prereq">Requires ${
+                  c.prereqLogic === "any" && c.prerequisites.length > 1
+                    ? c.prerequisites.join(" or ")
+                    : c.prerequisites.join(" + ")
+                }</div>`
+              : "";
+          const tagHtml = c.tag
+            ? `<span class="course-detail-tag">${c.tag}</span>`
+            : "";
+          const videoId = c.videoUrl ? youTubeIdFromUrl(c.videoUrl) : null;
+          const videoHtml = videoId
+            ? `<div class="course-detail-video">
+                 <iframe src="https://www.youtube.com/embed/${videoId}" title="${c.title} video"
+                         loading="lazy" allowfullscreen
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+               </div>`
+            : "";
+          return `
+            <div class="course-detail" id="course-${slugify(c.title)}" style="--accent:${dept.accent}">
+              <div class="course-detail-meta">
+                <span class="course-detail-grades">Grades ${c.grades}</span>
+                ${tagHtml}
+              </div>
+              <h3>${c.title}</h3>
+              <p class="course-detail-desc">${c.desc}</p>
+              ${teachersHtml}
+              ${prereqHtml}
+              ${videoHtml}
+            </div>
+          `;
+        })
+        .join("");
+
       content.innerHTML = `
         <section class="hero dept-hero" style="--accent:${dept.accent}">
           <div class="container">
@@ -94,6 +137,13 @@
         </section>
 
         <section>
+          <div class="container">
+            <h2 class="section-title">Course Details</h2>
+            <div class="course-detail-list">${courseDetailsHtml}</div>
+          </div>
+        </section>
+
+        <section class="section-alt">
           <div class="container">
             <h2 class="section-title">Explore Other Pathways</h2>
             <div class="other-pathways">${otherPathways}</div>
