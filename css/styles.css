@@ -229,6 +229,13 @@ section { padding: 64px 0; }
   gap: 20px;
 }
 
+/* ---------- Club Cards (fixed 3-column, doesn't stretch with few items) ---------- */
+.club-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 .dept-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -661,7 +668,13 @@ footer.site-footer {
 .not-found { text-align: center; padding: 100px 24px; }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .club-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 760px) {
+  .club-grid { grid-template-columns: 1fr; }
+
   .nav-toggle { display: flex; }
   .nav-links {
     display: none;
