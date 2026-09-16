@@ -103,6 +103,22 @@ header.site-header {
   background: rgba(255,255,255,0.14);
 }
 
+.nav-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+  border-radius: 8px;
+  color: rgba(255,255,255,0.82);
+  flex-shrink: 0;
+}
+
+.nav-icon-link:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+
+.nav-icon-link-text { display: none; }
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -631,6 +647,16 @@ footer.site-footer {
   }
   .nav-links.open { display: flex; }
   .nav-link { padding: 12px 8px; }
+
+  .nav-icon-link {
+    width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 12px 8px;
+    margin-left: 0;
+  }
+  .nav-icon-link-text { display: inline; font-size: 0.92rem; font-weight: 500; }
 
   .flow-card { padding: 14px; }
 }

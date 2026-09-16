@@ -32,6 +32,13 @@ async function renderSiteChrome(activeSlug) {
         <nav class="nav-links" id="nav-links">
           <a class="nav-link${activeSlug ? "" : " active"}" href="index.html">Home</a>
           ${navLinks}
+          <a class="nav-icon-link" href="/admin/" title="Teacher Login" aria-label="Teacher Login">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="11" width="14" height="9" rx="2"></rect>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+            </svg>
+            <span class="nav-icon-link-text">Teacher Login</span>
+          </a>
         </nav>
       </div>
     `;
@@ -56,12 +63,6 @@ async function renderSiteChrome(activeSlug) {
         <div class="footer-col">
           <div class="footer-title">Contact</div>
           <p class="footer-text">Walton High School<br>1590 Bill Murdock Rd, Marietta, GA 30062<br>(770) 578-3225</p>
-        </div>
-        <div class="footer-col">
-          <div class="footer-title">Staff</div>
-          <ul class="footer-links">
-            <li><a href="/admin/">Teacher Login →</a></li>
-          </ul>
         </div>
       </div>
       <div class="footer-bottom">© ${new Date().getFullYear()} Walton CTAE · Walton High School</div>
