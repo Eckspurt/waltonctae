@@ -1,7 +1,7 @@
 {
   "name": "Computer Science",
   "icon": "💻",
-  "accent": "#1b6ca8",
+  "accent": "#0E7C7B",
   "tagline": "Learn to think computationally.",
   "description": "The Computer Science pathway teaches programming, cybersecurity, and networking. Students start with AP Computer Science Principles, then branch into AP Computer Science A and/or AP Cybersecurity before converging on AP Networking.",
   "teachers": [
