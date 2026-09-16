@@ -107,13 +107,13 @@ collections:
                     widget: "string"
                     required: false
                     hint: "e.g. Elective, Capstone option, Certification option"
-          - label: "Clubs & Related Organizations"
+          - label: "Clubs & Related Organizations (this pathway only)"
             name: "clubs"
             widget: "list"
             required: false
             summary: "{{name}}"
-            hint: "Shows as clickable tiles below Course Progression; each links down to its full details further down the page."
-            fields:
+            hint: "Shows as clickable tiles below Course Progression; each links down to its full details further down the page. For a club shared across every pathway (e.g. NTHS), use \"Clubs & Organizations (All Pathways)\" instead, under Sitewide Content."
+            fields: &clubFields
               - { label: "Club/Organization Name", name: "name", widget: "string" }
               - { label: "Icon (emoji)", name: "icon", widget: "string", required: false }
               - { label: "Short Tagline", name: "tagline", widget: "string", required: false, hint: "One line, shown on the tile." }
@@ -150,3 +150,17 @@ collections:
         label: "Healthcare Science"
         file: "content/departments/healthcare-science.json"
         fields: *deptFields
+
+  - name: "site-content"
+    label: "Sitewide Content"
+    files:
+      - name: "clubs"
+        label: "Clubs & Organizations (All Pathways)"
+        file: "content/clubs.json"
+        fields:
+          - label: "Clubs"
+            name: "clubs"
+            widget: "list"
+            summary: "{{name}}"
+            hint: "These show on every department page, in addition to that department's own clubs. Use this for a club/organization that isn't specific to one pathway, like NTHS."
+            fields: *clubFields

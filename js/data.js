@@ -39,6 +39,17 @@ async function loadAllDepartments() {
   return Object.fromEntries(entries);
 }
 
+// Clubs/organizations that show on every department page (e.g. NTHS),
+// separate from content/departments/<slug>.json's own department-specific clubs.
+async function loadSiteClubs() {
+  const res = await fetch("content/clubs.json");
+  if (!res.ok) {
+    throw new Error("Failed to load sitewide clubs content");
+  }
+  const data = await res.json();
+  return data.clubs || [];
+}
+
 // Turns a course title into a URL-safe anchor id, e.g. "AP Computer Science A" -> "ap-computer-science-a"
 function slugify(str) {
   return str

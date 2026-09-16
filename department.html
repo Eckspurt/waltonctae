@@ -110,7 +110,7 @@
         })
         .join("");
 
-      const clubs = dept.clubs || [];
+      const clubs = [...(await loadSiteClubs()), ...(dept.clubs || [])];
 
       const clubTilesHtml = clubs
         .map(
