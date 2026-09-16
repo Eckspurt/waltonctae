@@ -99,9 +99,8 @@
             <div class="course-detail" id="course-${slugify(c.title)}" style="--accent:${dept.accent}">
               <div class="course-detail-meta">
                 <span class="course-detail-grades">Grades ${c.grades}</span>
-                ${tagHtml}
               </div>
-              <h3>${c.title}</h3>
+              <h3>${c.title} ${tagHtml}</h3>
               ${prereqHtml}
               <p class="course-detail-desc">${c.desc}</p>
               ${videoHtml}

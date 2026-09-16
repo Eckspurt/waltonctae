@@ -490,6 +490,9 @@ section { padding: 64px 0; }
 }
 
 .course-detail-tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
   background: var(--accent);
   color: var(--white);
   font-size: 0.68rem;
