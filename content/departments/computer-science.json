@@ -8,7 +8,8 @@
     {
       "name": "Whit Hubbard",
       "email": "whitney.hubbard@cobbk12.org",
-      "room": "119"
+      "room": "119",
+      "photo": "/images/uploads/whit-hubbard.png"
     },
     {
       "name": "Linda Vu",
@@ -36,7 +37,8 @@
           {
             "name": "Whit Hubbard",
             "email": "whitney.hubbard@cobbk12.org",
-            "room": "119"
+            "room": "119",
+            "photo": "/images/uploads/whit-hubbard.png"
           }
         ],
         "prerequisites": [
@@ -53,7 +55,8 @@
           {
             "name": "Whit Hubbard",
             "email": "whitney.hubbard@cobbk12.org",
-            "room": "119"
+            "room": "119",
+            "photo": "/images/uploads/whit-hubbard.png"
           }
         ],
         "prerequisites": [
