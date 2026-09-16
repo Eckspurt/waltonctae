@@ -56,9 +56,23 @@
         .map((c) => {
           const teachersHtml =
             c.teachers && c.teachers.length
-              ? `<div class="course-detail-teachers">Taught by ${c.teachers
-                  .map((t) => t.name)
-                  .join(", ")}</div>`
+              ? `<div class="course-detail-teachers">
+                   <span class="course-detail-teachers-label">Teachers:</span>
+                   ${c.teachers
+                     .map(
+                       (t) => `
+                     <span class="course-detail-teacher">
+                       ${
+                         t.photo
+                           ? `<img class="teacher-avatar-img-sm" src="${t.photo}" alt="${t.name}">`
+                           : `<span class="teacher-avatar-sm">${t.name === "TBD" ? "?" : t.name.charAt(0)}</span>`
+                       }
+                       ${t.name}
+                     </span>
+                   `
+                     )
+                     .join("")}
+                 </div>`
               : "";
           const prereqHtml =
             c.prerequisites && c.prerequisites.length
@@ -86,9 +100,9 @@
                 ${tagHtml}
               </div>
               <h3>${c.title}</h3>
+              ${prereqHtml}
               <p class="course-detail-desc">${c.desc}</p>
               ${teachersHtml}
-              ${prereqHtml}
               ${videoHtml}
             </div>
           `;
