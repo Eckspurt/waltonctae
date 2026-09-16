@@ -27,7 +27,8 @@
         "teachers": [],
         "prerequisites": [],
         "prereqLogic": "all",
-        "tag": ""
+        "tag": "",
+        "videoUrl": "https://youtu.be/7NLrlrsFbS8"
       },
       {
         "title": "AP Computer Science A",
@@ -76,7 +77,7 @@
         ],
         "prereqLogic": "any",
         "tag": "Coming Soon",
-        "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ"
+        "videoUrl": ""
       }
     ]
   },
