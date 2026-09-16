@@ -57,10 +57,6 @@ async function renderSiteChrome(activeSlug) {
     footer.innerHTML = `
       <div class="footer-wrap">
         <div class="footer-col">
-          <div class="footer-title">Walton CTAE</div>
-          <p class="footer-text">Career, Technical &amp; Agricultural Education at Walton High School.</p>
-        </div>
-        <div class="footer-col">
           <div class="footer-title">Contact</div>
           <p class="footer-text">Walton High School<br>1590 Bill Murdock Rd, Marietta, GA 30062<br>(770) 578-3225</p>
         </div>
