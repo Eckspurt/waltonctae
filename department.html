@@ -54,11 +54,13 @@
 
       const courseDetailsHtml = (dept.pathway.courses || [])
         .map((c) => {
+          const courseTeachers =
+            c.teachers && c.teachers.length ? c.teachers : dept.teachers || [];
           const teachersHtml =
-            c.teachers && c.teachers.length
+            courseTeachers.length
               ? `<div class="course-detail-teachers">
                    <span class="course-detail-teachers-label">Teachers:</span>
-                   ${c.teachers
+                   ${courseTeachers
                      .map(
                        (t) => `
                      <span class="course-detail-teacher">
