@@ -54,11 +54,27 @@ async function renderSiteChrome(activeSlug) {
   }
 
   if (footer) {
+    const teacherContactsHtml = CTAE_DEPARTMENTS.map((slug) => {
+      const dept = allDepts[slug];
+      return (dept.teachers || [])
+        .map(
+          (t) => `
+        <div class="footer-staff-item">
+          <span class="footer-staff-name">${t.name}</span>
+          <span class="footer-staff-dept">${dept.name}</span>
+          <a class="footer-staff-email" href="mailto:${t.email}">${t.email}</a>
+        </div>
+      `
+        )
+        .join("");
+    }).join("");
+
     footer.innerHTML = `
       <div class="footer-wrap">
         <div class="footer-col">
           <div class="footer-title">Contact</div>
           <p class="footer-text">Walton High School<br>1590 Bill Murdock Rd, Marietta, GA 30062<br>(770) 578-3225</p>
+          <div class="footer-staff-grid">${teacherContactsHtml}</div>
         </div>
       </div>
       <div class="footer-bottom">© ${new Date().getFullYear()} Walton CTAE · Walton High School</div>

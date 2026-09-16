@@ -107,6 +107,24 @@ collections:
                     widget: "string"
                     required: false
                     hint: "e.g. Elective, Capstone option, Certification option"
+          - label: "Clubs & Related Organizations"
+            name: "clubs"
+            widget: "list"
+            required: false
+            summary: "{{name}}"
+            hint: "Shows as clickable tiles below Course Progression; each links down to its full details further down the page."
+            fields:
+              - { label: "Club/Organization Name", name: "name", widget: "string" }
+              - { label: "Icon (emoji)", name: "icon", widget: "string", required: false }
+              - { label: "Short Tagline", name: "tagline", widget: "string", hint: "One line, shown on the tile." }
+              - { label: "Meeting Info", name: "meetingInfo", widget: "string", required: false, hint: "e.g. Thursdays, 3:30–5:00 PM, Room 119" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Advisors"
+                name: "advisors"
+                widget: "list"
+                required: false
+                summary: "{{name}}"
+                fields: *teacherFields
 
       - name: "business"
         label: "Business"

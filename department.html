@@ -111,6 +111,59 @@
         })
         .join("");
 
+      const clubs = dept.clubs || [];
+
+      const clubTilesHtml = clubs
+        .map(
+          (c) => `
+        <a class="dept-card" style="--card-accent:${dept.accent}" href="#club-${slugify(c.name)}">
+          <div class="dept-card-icon">${c.icon || "⭐"}</div>
+          <h3>${c.name}</h3>
+          <p>${c.tagline}</p>
+          <span class="dept-card-link">Learn More →</span>
+        </a>
+      `
+        )
+        .join("");
+
+      const clubDetailsHtml = clubs
+        .map((c) => {
+          const advisorsHtml =
+            c.advisors && c.advisors.length
+              ? `<div class="course-detail-teachers">
+                   <span class="course-detail-teachers-label">Advisors:</span>
+                   ${c.advisors
+                     .map(
+                       (t) => `
+                     <span class="course-detail-teacher">
+                       ${
+                         t.photo
+                           ? `<img class="teacher-avatar-img-sm" src="${t.photo}" alt="${t.name}">`
+                           : `<span class="teacher-avatar-sm">${t.name === "TBD" ? "?" : t.name.charAt(0)}</span>`
+                       }
+                       ${t.name}
+                     </span>
+                   `
+                     )
+                     .join("")}
+                 </div>`
+              : "";
+          const meetingHtml = c.meetingInfo
+            ? `<div class="course-detail-meta">
+                 <span class="course-detail-grades">${c.meetingInfo}</span>
+               </div>`
+            : "";
+          return `
+            <div class="course-detail" id="club-${slugify(c.name)}" style="--accent:${dept.accent}">
+              ${meetingHtml}
+              <h3>${c.icon ? c.icon + " " : ""}${c.name}</h3>
+              <p class="course-detail-desc">${c.description}</p>
+              ${advisorsHtml}
+            </div>
+          `;
+        })
+        .join("");
+
       content.innerHTML = `
         <section class="hero dept-hero" style="--accent:${dept.accent}">
           <div class="container">
@@ -154,12 +207,34 @@
           </div>
         </section>
 
+        ${
+          clubs.length
+            ? `<section>
+                 <div class="container">
+                   <h2 class="section-title">Clubs &amp; Related Organizations</h2>
+                   <div class="dept-grid">${clubTilesHtml}</div>
+                 </div>
+               </section>`
+            : ""
+        }
+
         <section>
           <div class="container">
             <h2 class="section-title">Course Details</h2>
             <div class="course-detail-list">${courseDetailsHtml}</div>
           </div>
         </section>
+
+        ${
+          clubs.length
+            ? `<section class="section-alt">
+                 <div class="container">
+                   <h2 class="section-title">Club &amp; Organization Details</h2>
+                   <div class="course-detail-list">${clubDetailsHtml}</div>
+                 </div>
+               </section>`
+            : ""
+        }
 
         <section class="section-alt">
           <div class="container">

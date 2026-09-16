@@ -621,6 +621,28 @@ footer.site-footer {
 
 .footer-text { font-size: 0.9rem; margin: 0; }
 
+.footer-staff-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 28px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-staff-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.footer-staff-name { font-weight: 600; color: var(--white); }
+.footer-staff-dept { color: rgba(255,255,255,0.55); font-size: 0.75rem; }
+.footer-staff-email { color: rgba(255,255,255,0.75); }
+.footer-staff-email:hover { color: var(--white); }
+
 .footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
 .footer-links a { font-size: 0.9rem; }
 .footer-links a:hover { color: var(--white); }
