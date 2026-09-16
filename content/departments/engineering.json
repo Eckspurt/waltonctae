@@ -5,7 +5,12 @@
   "tagline": "Design, prototype, and problem-solve like an engineer.",
   "description": "The Engineering pathway follows the Project Lead The Way (PLTW) sequence, taking students from foundational design principles through applied engineering problem-solving using industry-standard tools like CAD software.",
   "teachers": [
-    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" }
+    {
+      "name": "Ty Vernon",
+      "email": "Ty.Vernon@cobbk12.org",
+      "room": "111",
+      "photo": "/images/uploads/ty-vernon-profile.jpg"
+    }
   ],
   "pathway": {
     "name": "Engineering & Technology (PLTW)",
@@ -24,16 +29,31 @@
         "grades": "10–11",
         "desc": "Core engineering topics applied through hands-on projects.",
         "teachers": [],
-        "prerequisites": ["Introduction to Engineering Design"],
+        "prerequisites": [
+          "Introduction to Engineering Design"
+        ],
         "prereqLogic": "all",
         "tag": ""
       },
       {
-        "title": "Specialization — Civil Engineering & Architecture / Digital Electronics",
+        "title": "Digital Electronics",
         "grades": "11–12",
-        "desc": "Choose a focus area to study in depth.",
+        "desc": "An introductory class to the basics of Electrical Engineering.  Topics include your mom.",
         "teachers": [],
-        "prerequisites": ["Principles of Engineering"],
+        "prerequisites": [
+          "Principles of Engineering"
+        ],
+        "prereqLogic": "all",
+        "tag": ""
+      },
+      {
+        "title": "Aerospace Engineering",
+        "grades": "11-12",
+        "desc": "An introduction to the fundamentals of aerospace engineering.",
+        "teachers": [],
+        "prerequisites": [
+          "Principles of Engineering"
+        ],
         "prereqLogic": "all",
         "tag": ""
       },
@@ -42,18 +62,12 @@
         "grades": "12",
         "desc": "Independent, team-based engineering capstone project.",
         "teachers": [],
-        "prerequisites": ["Specialization — Civil Engineering & Architecture / Digital Electronics"],
-        "prereqLogic": "all",
-        "tag": "Capstone option"
-      },
-      {
-        "title": "Work-Based Learning",
-        "grades": "12",
-        "desc": "Paid or unpaid placement with a local engineering employer.",
-        "teachers": [],
-        "prerequisites": ["Specialization — Civil Engineering & Architecture / Digital Electronics"],
-        "prereqLogic": "all",
-        "tag": "Capstone option"
+        "prerequisites": [
+          "Digital Electronics",
+          "Aerospace Engineering"
+        ],
+        "prereqLogic": "any",
+        "tag": "STEM"
       }
     ]
   },
