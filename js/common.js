@@ -54,7 +54,8 @@ async function renderSiteChrome(activeSlug) {
   }
 
   if (footer) {
-    const teacherContactsHtml = CTAE_DEPARTMENTS.map((slug) => {
+    const footerDeptSlugs = activeSlug ? [activeSlug] : CTAE_DEPARTMENTS;
+    const teacherContactsHtml = footerDeptSlugs.map((slug) => {
       const dept = allDepts[slug];
       return (dept.teachers || [])
         .map(
