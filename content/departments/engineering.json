@@ -52,10 +52,11 @@
         "desc": "Independent, team-based engineering capstone project.",
         "teachers": [],
         "prerequisites": [
-          "Specialization — Civil Engineering & Architecture / Digital Electronics"
+          "Digital Electronics",
+          "Aerospace Engineering"
         ],
-        "prereqLogic": "all",
-        "tag": "Capstone option"
+        "prereqLogic": "any",
+        "tag": "STEM"
       },
       {
         "title": "Aerospace Engineering",
