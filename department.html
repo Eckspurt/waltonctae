@@ -119,7 +119,7 @@
         <a class="dept-card" style="--card-accent:${dept.accent}" href="#club-${slugify(c.name)}">
           <div class="dept-card-icon">${c.icon || "⭐"}</div>
           <h3>${c.name}</h3>
-          <p>${c.tagline}</p>
+          <p>${c.tagline || ""}</p>
           <span class="dept-card-link">Learn More →</span>
         </a>
       `

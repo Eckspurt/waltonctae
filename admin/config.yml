@@ -116,7 +116,7 @@ collections:
             fields:
               - { label: "Club/Organization Name", name: "name", widget: "string" }
               - { label: "Icon (emoji)", name: "icon", widget: "string", required: false }
-              - { label: "Short Tagline", name: "tagline", widget: "string", hint: "One line, shown on the tile." }
+              - { label: "Short Tagline", name: "tagline", widget: "string", required: false, hint: "One line, shown on the tile." }
               - { label: "Meeting Info", name: "meetingInfo", widget: "string", required: false, hint: "e.g. Thursdays, 3:30–5:00 PM, Room 119" }
               - { label: "Description", name: "description", widget: "text" }
               - label: "Advisors"
