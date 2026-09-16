@@ -26,10 +26,10 @@ auth:
   avatar_url_claim: avatar_url
 
 # Walton CTAE logo on the CMS login screen (optional)
-logo_url: https://waltonctae.netlify.app/images/uploads/logo.png
+logo_url: https://waltonctae.pages.dev/images/uploads/logo.png
 
 # Add site links in Decap CMS (optional)
-site_url: https://waltonctae.netlify.app
+site_url: https://waltonctae.pages.dev
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
