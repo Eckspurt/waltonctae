@@ -610,6 +610,7 @@ footer.site-footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 28px;
+  text-align: center;
 }
 
 .footer-title {
