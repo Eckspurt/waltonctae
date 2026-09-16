@@ -370,7 +370,7 @@ section { padding: 64px 0; }
   position: relative;
   display: flex;
   align-items: stretch;
-  gap: 72px;
+  gap: 40px;
 }
 
 .flow-column {
@@ -378,8 +378,8 @@ section { padding: 64px 0; }
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-  flex: 1 1 200px;
-  min-width: 200px;
+  flex: 1 1 190px;
+  min-width: 190px;
 }
 
 .flowchart-lines {
