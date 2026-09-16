@@ -62,7 +62,6 @@ async function renderSiteChrome(activeSlug) {
           (t) => `
         <div class="footer-staff-item">
           <span class="footer-staff-name">${t.name}</span>
-          <span class="footer-staff-dept">${dept.name}</span>
           <a class="footer-staff-email" href="mailto:${t.email}">${t.email}</a>
         </div>
       `

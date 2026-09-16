@@ -164,6 +164,67 @@
         })
         .join("");
 
+      const sections = [
+        `
+          <p class="dept-description">${dept.description}</p>
+          <div class="teachers-grid" style="--accent:${dept.accent}">
+            ${(dept.teachers || [])
+              .map(
+                (t) => `
+              <div class="teacher-card">
+                ${
+                  t.photo
+                    ? `<img class="teacher-avatar-img" src="${t.photo}" alt="${t.name}">`
+                    : `<div class="teacher-avatar">${t.name === "TBD" ? "?" : t.name.charAt(0)}</div>`
+                }
+                <div>
+                  <div class="teacher-name">${t.name}</div>
+                  <div class="teacher-meta">${t.email}</div>
+                  <div class="teacher-meta">Room: ${t.room}</div>
+                </div>
+              </div>
+            `
+              )
+              .join("")}
+          </div>
+        `,
+        `
+          <h2 class="section-title">Course Progression</h2>
+          <p class="section-lede">Follow the ${dept.name} pathway below — arrows show which course(s) must come before another. Some courses can be reached more than one way.</p>
+          <div class="flowchart-wrap" id="flowchart"></div>
+        `,
+        clubs.length
+          ? `
+          <h2 class="section-title">Clubs &amp; Related Organizations</h2>
+          <div class="dept-grid">${clubTilesHtml}</div>
+        `
+          : null,
+        `
+          <h2 class="section-title">Course Details</h2>
+          <div class="course-detail-list">${courseDetailsHtml}</div>
+        `,
+        clubs.length
+          ? `
+          <h2 class="section-title">Club &amp; Organization Details</h2>
+          <div class="course-detail-list">${clubDetailsHtml}</div>
+        `
+          : null,
+        `
+          <h2 class="section-title">Explore Other Pathways</h2>
+          <div class="other-pathways">${otherPathways}</div>
+        `
+      ].filter(Boolean);
+
+      const sectionsHtml = sections
+        .map(
+          (inner, i) => `
+        <section${i % 2 === 1 ? ' class="section-alt"' : ""}>
+          <div class="container">${inner}</div>
+        </section>
+      `
+        )
+        .join("");
+
       content.innerHTML = `
         <section class="hero dept-hero" style="--accent:${dept.accent}">
           <div class="container">
@@ -172,76 +233,7 @@
           </div>
         </section>
 
-        <section>
-          <div class="container">
-            <p class="dept-description">${dept.description}</p>
-
-            <div class="teachers-grid" style="--accent:${dept.accent}">
-              ${(dept.teachers || [])
-                .map(
-                  (t) => `
-                <div class="teacher-card">
-                  ${
-                    t.photo
-                      ? `<img class="teacher-avatar-img" src="${t.photo}" alt="${t.name}">`
-                      : `<div class="teacher-avatar">${t.name === "TBD" ? "?" : t.name.charAt(0)}</div>`
-                  }
-                  <div>
-                    <div class="teacher-name">${t.name}</div>
-                    <div class="teacher-meta">${t.email}</div>
-                    <div class="teacher-meta">Room: ${t.room}</div>
-                  </div>
-                </div>
-              `
-                )
-                .join("")}
-            </div>
-          </div>
-        </section>
-
-        <section class="section-alt">
-          <div class="container">
-            <h2 class="section-title">Course Progression</h2>
-            <p class="section-lede">Follow the ${dept.name} pathway below — arrows show which course(s) must come before another. Some courses can be reached more than one way.</p>
-            <div class="flowchart-wrap" id="flowchart"></div>
-          </div>
-        </section>
-
-        ${
-          clubs.length
-            ? `<section>
-                 <div class="container">
-                   <h2 class="section-title">Clubs &amp; Related Organizations</h2>
-                   <div class="dept-grid">${clubTilesHtml}</div>
-                 </div>
-               </section>`
-            : ""
-        }
-
-        <section>
-          <div class="container">
-            <h2 class="section-title">Course Details</h2>
-            <div class="course-detail-list">${courseDetailsHtml}</div>
-          </div>
-        </section>
-
-        ${
-          clubs.length
-            ? `<section class="section-alt">
-                 <div class="container">
-                   <h2 class="section-title">Club &amp; Organization Details</h2>
-                   <div class="course-detail-list">${clubDetailsHtml}</div>
-                 </div>
-               </section>`
-            : ""
-        }
-
-        <section class="section-alt">
-          <div class="container">
-            <h2 class="section-title">Explore Other Pathways</h2>
-            <div class="other-pathways">${otherPathways}</div>
-          </div>
-        </section>
+        ${sectionsHtml}
       `;
 
       renderFlowchart(document.getElementById("flowchart"), dept.pathway, dept.accent);
