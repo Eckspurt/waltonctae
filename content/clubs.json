@@ -3,13 +3,7 @@
     {
       "name": "National Technical Honor Society (NTHS)",
       "description": "For smart people",
-      "advisors": [
-        {
-          "name": "Heather Guiendon",
-          "email": "heather.guiendon@cobbk12.org",
-          "room": "114"
-        }
-      ]
+      "advisors": ["Heather Guiendon"]
     }
   ]
 }

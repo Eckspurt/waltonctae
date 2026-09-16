@@ -4,9 +4,7 @@
   "accent": "#B23A48",
   "tagline": "Get a hands-on start toward a career in healthcare.",
   "description": "The Healthcare Science pathway introduces students to the medical field through anatomy, patient care, and clinical skills. Students can work toward industry certifications and clinical experience before graduating.",
-  "teachers": [
-    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" }
-  ],
+  "teachers": ["TBD"],
   "pathway": {
     "name": "Healthcare Science",
     "courses": [

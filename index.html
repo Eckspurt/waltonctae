@@ -65,7 +65,7 @@
   <script src="js/common.js"></script>
   <script>
     (async () => {
-      const allDepts = await renderSiteChrome(null);
+      const { allDepts } = await renderSiteChrome(null);
 
       const grid = document.getElementById("dept-grid");
       grid.innerHTML = CTAE_DEPARTMENTS.map((slug) => {

@@ -12,6 +12,8 @@ async function renderSiteChrome(activeSlug) {
   const header = document.getElementById("site-header");
   const footer = document.getElementById("site-footer");
   const allDepts = await loadAllDepartments();
+  const siteTeachers = await loadSiteTeachers();
+  const teacherMap = new Map(siteTeachers.map((t) => [t.name, t]));
 
   if (header) {
     const navLinks = CTAE_DEPARTMENTS.map((slug) => {
@@ -57,7 +59,7 @@ async function renderSiteChrome(activeSlug) {
     const footerDeptSlugs = activeSlug ? [activeSlug] : CTAE_DEPARTMENTS;
     const teacherContactsHtml = footerDeptSlugs.map((slug) => {
       const dept = allDepts[slug];
-      return (dept.teachers || [])
+      return resolveTeachers(dept.teachers, teacherMap)
         .map(
           (t) => `
         <div class="footer-staff-item">
@@ -81,5 +83,5 @@ async function renderSiteChrome(activeSlug) {
     `;
   }
 
-  return allDepts;
+  return { allDepts, teacherMap };
 }

@@ -50,6 +50,28 @@ async function loadSiteClubs() {
   return data.clubs || [];
 }
 
+// The school's staff directory — the single source of truth for a teacher's
+// email/room/photo. Departments, courses, and clubs reference a teacher by
+// their exact name (a plain string) rather than repeating their contact
+// info, so editing someone's info here updates it everywhere they're listed.
+async function loadSiteTeachers() {
+  const res = await fetch("content/teachers.json");
+  if (!res.ok) {
+    throw new Error("Failed to load sitewide teachers content");
+  }
+  const data = await res.json();
+  return data.teachers || [];
+}
+
+// Resolves a list of teacher-name strings against the staff directory,
+// falling back to a bare name (no email/room/photo) if a name doesn't
+// match any entry — e.g. a typo, or someone not yet added.
+function resolveTeachers(names, teacherMap) {
+  return (names || []).map(
+    (name) => teacherMap.get(name) || { name, email: "", room: "", photo: null }
+  );
+}
+
 // Turns a course title into a URL-safe anchor id, e.g. "AP Computer Science A" -> "ap-computer-science-a"
 function slugify(str) {
   return str

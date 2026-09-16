@@ -4,14 +4,7 @@
   "accent": "#D9A62E",
   "tagline": "Design, prototype, and problem-solve like an engineer.",
   "description": "The Engineering pathway follows the Project Lead The Way (PLTW) sequence, taking students from foundational design principles through applied engineering problem-solving using industry-standard tools like CAD software.",
-  "teachers": [
-    {
-      "name": "Ty Vernon",
-      "email": "Ty.Vernon@cobbk12.org",
-      "room": "111",
-      "photo": "/images/uploads/ty-vernon-profile.jpg"
-    }
-  ],
+  "teachers": ["Ty Vernon"],
   "pathway": {
     "name": "Engineering & Technology (PLTW)",
     "courses": [

@@ -1,0 +1,27 @@
+{
+  "teachers": [
+    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" },
+    {
+      "name": "Whit Hubbard",
+      "email": "whitney.hubbard@cobbk12.org",
+      "room": "119",
+      "photo": "/images/uploads/whit-hubbard.png"
+    },
+    {
+      "name": "Linda Vu",
+      "email": "linda.vu@cobbk12.org",
+      "room": "124"
+    },
+    {
+      "name": "Ty Vernon",
+      "email": "Ty.Vernon@cobbk12.org",
+      "room": "111",
+      "photo": "/images/uploads/ty-vernon-profile.jpg"
+    },
+    {
+      "name": "Heather Guiendon",
+      "email": "heather.guiendon@cobbk12.org",
+      "room": "114"
+    }
+  ]
+}

@@ -50,17 +50,7 @@ collections:
           - label: "Pathway Teachers"
             name: "teachers"
             widget: "list"
-            summary: "{{name}}"
-            hint: "Everyone who teaches somewhere in this pathway. Add as many as needed."
-            fields: &teacherFields
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Email", name: "email", widget: "string" }
-              - { label: "Room", name: "room", widget: "string" }
-              - label: "Photo"
-                name: "photo"
-                widget: "image"
-                required: false
-                hint: "Optional profile picture. Leave blank to show initials instead."
+            hint: "Type each teacher's exact name as it appears in Sitewide Content → Teachers (that's where you add/edit their email, room, and photo)."
           - label: "Pathway"
             name: "pathway"
             widget: "object"
@@ -81,9 +71,7 @@ collections:
                     name: "teachers"
                     widget: "list"
                     required: false
-                    summary: "{{name}}"
-                    hint: "Optional — only add someone here if they teach this specific course and aren't already listed as a general Pathway Teacher above."
-                    fields: *teacherFields
+                    hint: "Optional — only add a name here if they teach this specific course and aren't already listed as a general Pathway Teacher above. Type their exact name as it appears in Sitewide Content → Teachers."
                   - label: "YouTube Video URL"
                     name: "videoUrl"
                     widget: "string"
@@ -123,8 +111,7 @@ collections:
                 name: "advisors"
                 widget: "list"
                 required: false
-                summary: "{{name}}"
-                fields: *teacherFields
+                hint: "Type each advisor's exact name as it appears in Sitewide Content → Teachers."
 
       - name: "business"
         label: "Business"
@@ -154,6 +141,25 @@ collections:
   - name: "site-content"
     label: "Sitewide Content"
     files:
+      - name: "teachers"
+        label: "Teachers"
+        file: "content/teachers.json"
+        fields:
+          - label: "Teachers"
+            name: "teachers"
+            widget: "list"
+            summary: "{{name}}"
+            hint: "The school's staff directory. Every department/course/club refers to a teacher by their exact name here — edit someone's email, room, or photo once and it updates everywhere they're listed."
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Room", name: "room", widget: "string" }
+              - label: "Photo"
+                name: "photo"
+                widget: "image"
+                required: false
+                hint: "Optional profile picture. Leave blank to show initials instead."
+
       - name: "clubs"
         label: "Clubs & Organizations (All Pathways)"
         file: "content/clubs.json"

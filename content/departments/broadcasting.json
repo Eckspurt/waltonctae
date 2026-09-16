@@ -4,9 +4,7 @@
   "accent": "#5B2C83",
   "tagline": "Tell stories through video, audio, and live production.",
   "description": "The Broadcasting pathway teaches students to plan, shoot, edit, and deliver video and audio content, from news packages to live broadcasts. Students work hands-on with cameras, editing software, and studio equipment used in real television and streaming production.",
-  "teachers": [
-    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" }
-  ],
+  "teachers": ["TBD"],
   "pathway": {
     "name": "Digital Media: Broadcast Video Production",
     "courses": [

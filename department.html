@@ -39,7 +39,7 @@
         </div>
       `;
     } else {
-      const allDepts = await renderSiteChrome(slug);
+      const { allDepts, teacherMap } = await renderSiteChrome(slug);
       const dept = allDepts[slug];
 
       document.getElementById("page-title").textContent = dept.name + " | Walton CTAE";
@@ -54,8 +54,9 @@
 
       const courseDetailsHtml = (dept.pathway.courses || [])
         .map((c) => {
-          const courseTeachers =
+          const courseTeacherNames =
             c.teachers && c.teachers.length ? c.teachers : dept.teachers || [];
+          const courseTeachers = resolveTeachers(courseTeacherNames, teacherMap);
           const teachersHtml =
             courseTeachers.length
               ? `<div class="course-detail-teachers">
@@ -127,11 +128,12 @@
 
       const clubDetailsHtml = clubs
         .map((c) => {
+          const advisors = resolveTeachers(c.advisors, teacherMap);
           const advisorsHtml =
-            c.advisors && c.advisors.length
+            advisors.length
               ? `<div class="course-detail-teachers">
                    <span class="course-detail-teachers-label">Advisors:</span>
-                   ${c.advisors
+                   ${advisors
                      .map(
                        (t) => `
                      <span class="course-detail-teacher">
@@ -167,7 +169,7 @@
         `
           <p class="dept-description">${dept.description}</p>
           <div class="teachers-grid" style="--accent:${dept.accent}">
-            ${(dept.teachers || [])
+            ${resolveTeachers(dept.teachers, teacherMap)
               .map(
                 (t) => `
               <div class="teacher-card">
