@@ -4,25 +4,34 @@
   "accent": "#1B3A5C",
   "tagline": "Build the skills to manage, market, and launch a business.",
   "description": "The Business pathway introduces students to management, entrepreneurship, marketing, and finance. Students develop real-world skills through projects, simulations, and opportunities to plan and pitch their own business ideas.",
-  "teachers": ["TBD"],
+  "teachers": [
+    "Rob Nichols",
+    "Brad Smith",
+    "Linda Vu"
+  ],
   "pathway": {
     "name": "Business Management & Administration",
     "courses": [
       {
         "title": "Intro to Business & Technology",
-        "grades": "9–10",
+        "grades": "9–12",
         "desc": "Foundational course covering business fundamentals and workplace technology.",
-        "teachers": [],
+        "teachers": [
+          "Brad Smith",
+          "Linda Vu"
+        ],
         "prerequisites": [],
         "prereqLogic": "all",
         "tag": ""
       },
       {
         "title": "Business Management",
-        "grades": "10–11",
+        "grades": "10–12",
         "desc": "Principles of managing people, operations, and resources.",
         "teachers": [],
-        "prerequisites": ["Intro to Business & Technology"],
+        "prerequisites": [
+          "Intro to Business & Technology"
+        ],
         "prereqLogic": "all",
         "tag": ""
       },
@@ -31,7 +40,9 @@
         "grades": "11–12",
         "desc": "Applied management practice through projects and case studies.",
         "teachers": [],
-        "prerequisites": ["Business Management"],
+        "prerequisites": [
+          "Business Management"
+        ],
         "prereqLogic": "all",
         "tag": ""
       },
@@ -40,7 +51,9 @@
         "grades": "11–12",
         "desc": "Plan, pitch, and prototype a student business idea.",
         "teachers": [],
-        "prerequisites": ["Business Management"],
+        "prerequisites": [
+          "Business Management"
+        ],
         "prereqLogic": "all",
         "tag": "Elective"
       },
@@ -49,7 +62,9 @@
         "grades": "12",
         "desc": "Paid or unpaid placement with a local business employer.",
         "teachers": [],
-        "prerequisites": ["Advanced Business Management"],
+        "prerequisites": [
+          "Advanced Business Management"
+        ],
         "prereqLogic": "all",
         "tag": "Capstone option"
       }
