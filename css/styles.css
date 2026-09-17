@@ -515,6 +515,18 @@ section { padding: 64px 0; }
   max-width: 720px;
 }
 
+.course-detail-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.course-detail-link:hover {
+  text-decoration: underline;
+}
+
 .course-detail-teachers {
   display: flex;
   align-items: center;

@@ -154,11 +154,15 @@
                  <span class="course-detail-grades">${c.meetingInfo}</span>
                </div>`
             : "";
+          const websiteHtml = c.website
+            ? `<a class="course-detail-link" href="${c.website}" target="_blank" rel="noopener">Visit Website ↗</a>`
+            : "";
           return `
             <div class="course-detail" id="club-${slugify(c.name)}" style="--accent:${dept.accent}">
               ${meetingHtml}
               <h3>${c.icon ? c.icon + " " : ""}${c.name}</h3>
               <p class="course-detail-desc">${c.description}</p>
+              ${websiteHtml}
               ${advisorsHtml}
             </div>
           `;
