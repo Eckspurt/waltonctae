@@ -1,6 +1,10 @@
 {
   "teachers": [
-    { "name": "TBD", "email": "TBD@cobbk12.org", "room": "TBD" },
+    {
+      "name": "Al Basulto",
+      "email": "Alberto.Basulto@cobbk12.org",
+      "room": "100"
+    },
     {
       "name": "Whit Hubbard",
       "email": "whitney.hubbard@cobbk12.org",
@@ -22,6 +26,31 @@
       "name": "Heather Guiendon",
       "email": "heather.guiendon@cobbk12.org",
       "room": "114"
+    },
+    {
+      "email": "Rob.NICHOLS@cobbk12.org",
+      "name": "Rob Nichols",
+      "room": "125"
+    },
+    {
+      "email": "Taylor.Hayes@cobbk12.org",
+      "name": "Taylor Hayes",
+      "room": "100"
+    },
+    {
+      "name": "Patti Cowles",
+      "email": "Patricia.Cowles@cobbk12.org",
+      "room": "120"
+    },
+    {
+      "name": "Hannah Bolin",
+      "email": "Hannah.Bolin@cobbk12.org",
+      "room": "100"
+    },
+    {
+      "name": "Brad Smith",
+      "email": "james.smith@cobbk12.org",
+      "room": "200"
     }
   ]
 }
