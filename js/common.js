@@ -56,7 +56,7 @@ async function renderSiteChrome(activeSlug) {
   }
 
   if (footer) {
-    const footerDeptSlugs = activeSlug ? [activeSlug] : CTAE_DEPARTMENTS;
+    const footerDeptSlugs = activeSlug ? [activeSlug] : [];
     const teacherContactsHtml = footerDeptSlugs.map((slug) => {
       const dept = allDepts[slug];
       return resolveTeachers(dept.teachers, teacherMap)
@@ -76,7 +76,7 @@ async function renderSiteChrome(activeSlug) {
         <div class="footer-col">
           <div class="footer-title">Contact</div>
           <p class="footer-text">Walton High School<br>1590 Bill Murdock Rd, Marietta, GA 30062<br>(770) 578-3225</p>
-          <div class="footer-staff-grid">${teacherContactsHtml}</div>
+          ${teacherContactsHtml ? `<div class="footer-staff-grid">${teacherContactsHtml}</div>` : ""}
         </div>
       </div>
       <div class="footer-bottom">© ${new Date().getFullYear()} Walton CTAE · Walton High School</div>
