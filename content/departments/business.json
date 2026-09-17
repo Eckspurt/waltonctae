@@ -10,7 +10,7 @@
     "Linda Vu"
   ],
   "pathway": {
-    "name": "Business Management & Administration",
+    "name": "Financial Services",
     "courses": [
       {
         "title": "Intro to Business & Technology",
@@ -25,36 +25,37 @@
         "tag": ""
       },
       {
-        "title": "Banking & Investing",
+        "title": "Banking, Investing, & Insurance",
         "grades": "10–12",
-        "desc": "Principles of managing people, operations, and resources.",
-        "teachers": [],
+        "desc": "Students explore core concepts across banking operations, investment planning, and personal and business risk management. Through practical projects and case studies, students analyze financial performance, evaluate ethical regulations and fraud prevention, and explore financial careers.",
+        "teachers": [
+          "Rob Nichols",
+          "Brad Smith"
+        ],
         "prerequisites": [
           "Intro to Business & Technology"
         ],
         "prereqLogic": "all",
-        "tag": ""
+        "tag": "Elective"
       },
       {
         "title": "AP Business & Personal Finance",
         "grades": "11–12",
-        "desc": "Applied management practice through projects and case studies.",
+        "desc": "AP Business with Personal Finance is an introductory, college-level business and personal finance course. Students explore the business disciplines of entrepreneurship, marketing, finance, accounting, and management through real-world business application, case studies, and project-based learning. In addition, students learn and apply all the National Standards for Personal Financial Education created by the Council for Economic Education and the Jump$tart Coalition for Personal Financial Literacy. ",
         "teachers": [],
         "prerequisites": [
-          "Business Management"
+          "Introtobusiness"
         ],
         "prereqLogic": "all",
         "tag": ""
       },
       {
-        "title": "Entrepreneurship",
+        "title": "Financial Literacy",
         "grades": "11–12",
-        "desc": "Plan, pitch, and prototype a student business idea.",
+        "desc": "The course is designed to help students understand personal finance, manage money wisely, set financial goals, and develop realistic, measurable objectives to become \"MONEY SMART!\"",
         "teachers": [],
-        "prerequisites": [
-          "Business Management"
-        ],
-        "prereqLogic": "all",
+        "prerequisites": [],
+        "prereqLogic": null,
         "tag": "Elective"
       },
       {
