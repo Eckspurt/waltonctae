@@ -49,8 +49,14 @@ collections:
           - { label: "Description", name: "description", widget: "text" }
           - label: "Pathway Teachers"
             name: "teachers"
-            widget: "list"
-            hint: "Type each teacher's exact name as it appears in Sitewide Content → Teachers (that's where you add/edit their email, room, and photo)."
+            widget: "relation"
+            collection: "site-content"
+            file: "teachers"
+            search_fields: ["teachers.*.name"]
+            display_fields: ["teachers.*.name"]
+            value_field: "teachers.*.name"
+            multiple: true
+            hint: "Everyone who teaches somewhere in this pathway. To add someone new, add them under Sitewide Content → Teachers first."
           - label: "Pathway"
             name: "pathway"
             widget: "object"
@@ -69,9 +75,15 @@ collections:
                   - { label: "Description", name: "desc", widget: "text" }
                   - label: "Teachers for this course"
                     name: "teachers"
-                    widget: "list"
+                    widget: "relation"
+                    collection: "site-content"
+                    file: "teachers"
+                    search_fields: ["teachers.*.name"]
+                    display_fields: ["teachers.*.name"]
+                    value_field: "teachers.*.name"
+                    multiple: true
                     required: false
-                    hint: "Optional — only add a name here if they teach this specific course and aren't already listed as a general Pathway Teacher above. Type their exact name as it appears in Sitewide Content → Teachers."
+                    hint: "Optional — only add someone here if they teach this specific course and aren't already listed as a general Pathway Teacher above."
                   - label: "YouTube Video URL"
                     name: "videoUrl"
                     widget: "string"
@@ -109,9 +121,14 @@ collections:
               - { label: "Description", name: "description", widget: "text" }
               - label: "Advisors"
                 name: "advisors"
-                widget: "list"
+                widget: "relation"
+                collection: "site-content"
+                file: "teachers"
+                search_fields: ["teachers.*.name"]
+                display_fields: ["teachers.*.name"]
+                value_field: "teachers.*.name"
+                multiple: true
                 required: false
-                hint: "Type each advisor's exact name as it appears in Sitewide Content → Teachers."
 
       - name: "business"
         label: "Business"
