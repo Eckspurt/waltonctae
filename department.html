@@ -52,8 +52,27 @@
         })
         .join("");
 
-      const courseDetailsHtml = (dept.pathway.courses || [])
-        .map((c) => {
+      const pathways = getPathways(dept);
+
+      const prereqSummary = (c) =>
+        c.prerequisites && c.prerequisites.length
+          ? `Requires ${
+              c.prereqLogic === "any" && c.prerequisites.length > 1
+                ? c.prerequisites.join(" or ")
+                : c.prerequisites.join(" + ")
+            }`
+          : "";
+
+      // Each course appears once, even if it's in several pathways. Where its
+      // grades or prerequisites differ between pathways, each version is labelled.
+      const perPathway = (entries, getValue, format) => {
+        const groups = groupPathwaysBy(entries, getValue).filter((g) => g.value);
+        const differs = groupPathwaysBy(entries, getValue).length > 1;
+        return groups.map((g) => (differs ? `${format(g.value)} (${g.names.join(", ")})` : format(g.value)));
+      };
+
+      const courseDetailsHtml = buildCourseCatalog(pathways)
+        .map(({ course: c, entries }) => {
           const courseTeacherNames =
             c.teachers && c.teachers.length ? c.teachers : dept.teachers || [];
           const courseTeachers = resolveTeachers(courseTeacherNames, teacherMap);
@@ -77,14 +96,10 @@
                      .join("")}
                  </div>`
               : "";
-          const prereqHtml =
-            c.prerequisites && c.prerequisites.length
-              ? `<div class="course-detail-prereq">Requires ${
-                  c.prereqLogic === "any" && c.prerequisites.length > 1
-                    ? c.prerequisites.join(" or ")
-                    : c.prerequisites.join(" + ")
-                }</div>`
-              : "";
+          const prereqHtml = perPathway(entries, prereqSummary, (t) => t)
+            .map((line) => `<div class="course-detail-prereq">${line}</div>`)
+            .join("");
+          const gradesText = perPathway(entries, (x) => x.grades, gradesLabel).join(" · ");
           const tagHtml = c.tag
             ? `<span class="course-detail-tag">${c.tag}</span>`
             : "";
@@ -99,11 +114,11 @@
           return `
             <div class="course-detail" id="course-${slugify(c.title)}" style="--accent:${dept.accent}">
               <div class="course-detail-meta">
-                <span class="course-detail-grades">Grades ${c.grades}</span>
+                <span class="course-detail-grades">${gradesText}</span>
               </div>
               <h3>${c.title} ${tagHtml}</h3>
               ${prereqHtml}
-              <p class="course-detail-desc">${c.desc}</p>
+              ${c.desc ? `<p class="course-detail-desc">${c.desc}</p>` : ""}
               ${videoHtml}
               ${teachersHtml}
             </div>
@@ -195,8 +210,27 @@
         `,
         `
           <h2 class="section-title">Course Progression</h2>
-          <p class="section-lede">Follow the ${dept.name} pathway below — arrows show which course(s) must come before another. Some courses can be reached more than one way.</p>
-          <div class="flowchart-wrap" id="flowchart"></div>
+          <p class="section-lede">${
+            pathways.length > 1 ? `Choose a ${dept.name} pathway below` : `Follow the ${dept.name} pathway below`
+          } — arrows show which course(s) must come before another. Some courses can be reached more than one way.</p>
+          ${
+            pathways.length > 1
+              ? `<div class="pathway-tabs" role="tablist" style="--accent:${dept.accent}">${pathways
+                  .map(
+                    (p, i) =>
+                      `<button type="button" class="pathway-tab" role="tab" id="pathway-tab-${i}" aria-controls="flowchart-${i}" aria-selected="${i === 0}" data-index="${i}">${p.name}</button>`
+                  )
+                  .join("")}</div>`
+              : ""
+          }
+          ${pathways
+            .map(
+              (p, i) =>
+                `<div class="flowchart-wrap" id="flowchart-${i}"${
+                  pathways.length > 1 ? ` role="tabpanel" aria-labelledby="pathway-tab-${i}"` : ""
+                }${i > 0 ? " hidden" : ""}></div>`
+            )
+            .join("")}
         `,
         clubs.length
           ? `
@@ -241,7 +275,24 @@
         ${sectionsHtml}
       `;
 
-      renderFlowchart(document.getElementById("flowchart"), dept.pathway, dept.accent);
+      const redraws = pathways.map((p, i) =>
+        renderFlowchart(document.getElementById(`flowchart-${i}`), p, dept.accent, {
+          showName: pathways.length === 1
+        })
+      );
+
+      document.querySelectorAll(".pathway-tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const active = Number(tab.dataset.index);
+          document
+            .querySelectorAll(".pathway-tab")
+            .forEach((t, i) => t.setAttribute("aria-selected", String(i === active)));
+          pathways.forEach((_, i) => {
+            document.getElementById(`flowchart-${i}`).hidden = i !== active;
+          });
+          redraws[active]();
+        });
+      });
     }
     })();
   </script>

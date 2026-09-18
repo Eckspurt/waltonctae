@@ -9,72 +9,74 @@
     "Brad Smith",
     "Linda Vu"
   ],
-  "pathway": {
-    "name": "Financial Services",
-    "courses": [
-      {
-        "title": "Intro to Business & Technology",
-        "grades": "9–12",
-        "desc": "Foundational course covering business fundamentals and workplace technology.",
-        "teachers": [
-          "Brad Smith",
-          "Linda Vu"
-        ],
-        "prerequisites": [],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "Banking, Investing, & Insurance",
-        "grades": "10–12",
-        "desc": "Students explore core concepts across banking operations, investment planning, and personal and business risk management. Through practical projects and case studies, students analyze financial performance, evaluate ethical regulations and fraud prevention, and explore financial careers.",
-        "teachers": [
-          "Rob Nichols",
-          "Brad Smith"
-        ],
-        "prerequisites": [
-          "Intro to Business & Technology"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "Financial Literacy",
-        "grades": "11–12",
-        "desc": "The course is designed to help students understand personal finance, manage money wisely, set financial goals, and develop realistic, measurable objectives to become \"MONEY SMART!\"",
-        "teachers": [
-          "Rob Nichols"
-        ],
-        "prerequisites": [
-          "Banking, Investing, & Insurance"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "AP Business with Personal Finance",
-        "grades": "11–12",
-        "desc": "AP Business with Personal Finance is an introductory, college-level business and personal finance course. Students explore the business disciplines of entrepreneurship, marketing, finance, accounting, and management through real-world business application, case studies, and project-based learning. In addition, students learn and apply all the National Standards for Personal Financial Education created by the Council for Economic Education and the Jump$tart Coalition for Personal Financial Literacy. ",
-        "teachers": [
-          "Rob Nichols"
-        ],
-        "prerequisites": [
-          "Banking, Investing, & Insurance"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "Work-Based Learning",
-        "grades": "12",
-        "desc": "Work-based learning program connects high school academic instruction with structured, real-world industry experience, allowing qualified students to earn CTAE course credit",
-        "teachers": [],
-        "prerequisites": [],
-        "prereqLogic": "all",
-        "minColumn": 3,
-        "tag": ""
-      }
-    ]
-  },
+  "pathways": [
+    {
+      "name": "Financial Services",
+      "courses": [
+        {
+          "title": "Intro to Business & Technology",
+          "grades": "9–12",
+          "desc": "Foundational course covering business fundamentals and workplace technology.",
+          "teachers": [
+            "Brad Smith",
+            "Linda Vu"
+          ],
+          "prerequisites": [],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "Banking, Investing, & Insurance",
+          "grades": "10–12",
+          "desc": "Students explore core concepts across banking operations, investment planning, and personal and business risk management. Through practical projects and case studies, students analyze financial performance, evaluate ethical regulations and fraud prevention, and explore financial careers.",
+          "teachers": [
+            "Rob Nichols",
+            "Brad Smith"
+          ],
+          "prerequisites": [
+            "Intro to Business & Technology"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "Financial Literacy",
+          "grades": "11–12",
+          "desc": "The course is designed to help students understand personal finance, manage money wisely, set financial goals, and develop realistic, measurable objectives to become \"MONEY SMART!\"",
+          "teachers": [
+            "Rob Nichols"
+          ],
+          "prerequisites": [
+            "Banking, Investing, & Insurance"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "AP Business with Personal Finance",
+          "grades": "11–12",
+          "desc": "AP Business with Personal Finance is an introductory, college-level business and personal finance course. Students explore the business disciplines of entrepreneurship, marketing, finance, accounting, and management through real-world business application, case studies, and project-based learning. In addition, students learn and apply all the National Standards for Personal Financial Education created by the Council for Economic Education and the Jump$tart Coalition for Personal Financial Literacy. ",
+          "teachers": [
+            "Rob Nichols"
+          ],
+          "prerequisites": [
+            "Banking, Investing, & Insurance"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "Work-Based Learning",
+          "grades": "12",
+          "desc": "Work-based learning program connects high school academic instruction with structured, real-world industry experience, allowing qualified students to earn CTAE course credit",
+          "teachers": [],
+          "prerequisites": [],
+          "prereqLogic": "all",
+          "minColumn": 3,
+          "tag": ""
+        }
+      ]
+    }
+  ],
   "clubs": []
 }

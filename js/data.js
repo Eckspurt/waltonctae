@@ -72,6 +72,65 @@ function resolveTeachers(names, teacherMap) {
   );
 }
 
+// A department's pathways as a list (also accepts the older single "pathway"
+// shape). A course that reappears in a later pathway is the same course: if its
+// description, teachers, or video are blank there, it reuses the first
+// occurrence's. Grades, prerequisites, and tag stay specific to each pathway.
+function getPathways(dept) {
+  const list =
+    dept.pathways && dept.pathways.length ? dept.pathways : dept.pathway ? [dept.pathway] : [];
+  const firstSeen = new Map();
+  return list.map((p) => ({
+    ...p,
+    courses: (p.courses || []).map((c) => {
+      const base = firstSeen.get(c.title);
+      if (!base) {
+        firstSeen.set(c.title, c);
+        return c;
+      }
+      return {
+        ...c,
+        desc: c.desc || base.desc,
+        teachers: c.teachers && c.teachers.length ? c.teachers : base.teachers || [],
+        videoUrl: c.videoUrl || base.videoUrl
+      };
+    })
+  }));
+}
+
+// Every distinct course across a department's pathways, in order of first
+// appearance, with each pathway's version of it: [{ course, entries: [{ pathway, course }] }]
+function buildCourseCatalog(pathways) {
+  const byTitle = new Map();
+  pathways.forEach((pathway) =>
+    pathway.courses.forEach((course) => {
+      if (!byTitle.has(course.title)) byTitle.set(course.title, { course, entries: [] });
+      byTitle.get(course.title).entries.push({ pathway, course });
+    })
+  );
+  return [...byTitle.values()];
+}
+
+// Groups a course's per-pathway entries by a value, so identical values can be
+// shown once and differing ones labelled by pathway: [{ value, names: [pathway names] }]
+function groupPathwaysBy(entries, getValue) {
+  const groups = [];
+  entries.forEach(({ pathway, course }) => {
+    const value = getValue(course);
+    const group = groups.find((g) => g.value === value);
+    if (group) group.names.push(pathway.name);
+    else groups.push({ value, names: [pathway.name] });
+  });
+  return groups;
+}
+
+// "10–12" -> "Grades 10–12"; "9" -> "Grade 9"
+function gradesLabel(grades) {
+  const s = String(grades || "").trim();
+  if (!s) return "";
+  return /[–—,-]|\band\b/i.test(s) ? `Grades ${s}` : `Grade ${s}`;
+}
+
 // Turns a course title into a URL-safe anchor id, e.g. "AP Computer Science A" -> "ap-computer-science-a"
 function slugify(str) {
   return str

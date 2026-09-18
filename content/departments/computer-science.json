@@ -8,59 +8,130 @@
     "Whit Hubbard",
     "Linda Vu"
   ],
-  "pathway": {
-    "name": "Computer Science",
-    "courses": [
-      {
-        "title": "AP Computer Science Principles",
-        "grades": "10–12",
-        "desc": "AP Computer Science Principles is an introductory college-level computing course that introduces students to the breadth of the field of computer science. Students learn to design and evaluate solutions and to apply computer science to solve problems through the development of algorithms and programs. They incorporate abstraction into programs and use data to discover new knowledge. Students also explain how computing innovations and computing systems—including the internet—work, explore their potential impacts, and contribute to a computing culture that is collaborative and ethical. At Walton, students write their programs in Java, building a foundation for AP Computer Science A.",
-        "teachers": [],
-        "prerequisites": [],
-        "prereqLogic": "all",
-        "tag": "",
-        "videoUrl": "https://youtu.be/7NLrlrsFbS8"
-      },
-      {
-        "title": "AP Computer Science A",
-        "grades": "11–12",
-        "desc": "AP Computer Science A is equivalent to a first-semester, college-level course in computer science. The course emphasizes both object-oriented and imperative problem solving and design using the Java programming language. Topics include problem solving, design strategies and methodologies, organization of data (data structures), approaches to processing data (algorithms), analysis of potential solutions, and the ethical and social implications of computing.",
-        "teachers": [
-          "Whit Hubbard"
-        ],
-        "prerequisites": [
-          "AP Computer Science Principles"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "AP Cybersecurity",
-        "grades": "11–12",
-        "desc": "AP Cybersecurity trains students in the field and aligns closely with standard first-year collegiate cybersecurity courses. Students explore defense-in-depth strategies and learn to address specific vulnerabilities, attacks, mitigations, and detection measures across a variety of domains, including physical spaces, computer networks, devices, applications, and data.",
-        "teachers": [
-          "Whit Hubbard"
-        ],
-        "prerequisites": [
-          "AP Computer Science Principles"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "AP Networking",
-        "grades": "12",
-        "desc": "AP Networking trains students in the field and aligns closely with standard first-year collegiate introductory networking courses. Students blend learning essential networking concepts with relevant, hands-on problem-solving activities to maximize their understanding of network hardware, logical and physical configuration, the use of protocols to enable reliable and accurate transmission of data between hosts, and relevant security practices that protect the transmission of data within and between computer networks. Students learn the value of configuring devices and networks with a \"security-first\" mindset to mitigate common vulnerabilities. Students work collaboratively to connect, configure, troubleshoot, and secure devices and networks while building critical thinking and communication skills.",
-        "teachers": [],
-        "prerequisites": [
-          "AP Computer Science A",
-          "AP Cybersecurity"
-        ],
-        "prereqLogic": "any",
-        "tag": "Coming Soon",
-        "videoUrl": ""
-      }
-    ]
-  },
+  "pathways": [
+    {
+      "name": "Computer Science",
+      "courses": [
+        {
+          "title": "AP Computer Science Principles",
+          "grades": "10–12",
+          "desc": "AP Computer Science Principles is an introductory college-level computing course that introduces students to the breadth of the field of computer science. Students learn to design and evaluate solutions and to apply computer science to solve problems through the development of algorithms and programs. They incorporate abstraction into programs and use data to discover new knowledge. Students also explain how computing innovations and computing systems—including the internet—work, explore their potential impacts, and contribute to a computing culture that is collaborative and ethical. At Walton, students write their programs in Java, building a foundation for AP Computer Science A.",
+          "teachers": [],
+          "prerequisites": [],
+          "prereqLogic": "all",
+          "tag": "",
+          "videoUrl": "https://youtu.be/7NLrlrsFbS8"
+        },
+        {
+          "title": "AP Computer Science A",
+          "grades": "11–12",
+          "desc": "AP Computer Science A is equivalent to a first-semester, college-level course in computer science. The course emphasizes both object-oriented and imperative problem solving and design using the Java programming language. Topics include problem solving, design strategies and methodologies, organization of data (data structures), approaches to processing data (algorithms), analysis of potential solutions, and the ethical and social implications of computing.",
+          "teachers": [
+            "Whit Hubbard"
+          ],
+          "prerequisites": [
+            "AP Computer Science Principles"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "AP Cybersecurity",
+          "grades": "11–12",
+          "desc": "AP Cybersecurity trains students in the field and aligns closely with standard first-year collegiate cybersecurity courses. Students explore defense-in-depth strategies and learn to address specific vulnerabilities, attacks, mitigations, and detection measures across a variety of domains, including physical spaces, computer networks, devices, applications, and data.",
+          "teachers": [
+            "Whit Hubbard"
+          ],
+          "prerequisites": [
+            "AP Computer Science Principles"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "AP Networking",
+          "grades": "12",
+          "desc": "AP Networking trains students in the field and aligns closely with standard first-year collegiate introductory networking courses. Students blend learning essential networking concepts with relevant, hands-on problem-solving activities to maximize their understanding of network hardware, logical and physical configuration, the use of protocols to enable reliable and accurate transmission of data between hosts, and relevant security practices that protect the transmission of data within and between computer networks. Students learn the value of configuring devices and networks with a \"security-first\" mindset to mitigate common vulnerabilities. Students work collaboratively to connect, configure, troubleshoot, and secure devices and networks while building critical thinking and communication skills.",
+          "teachers": [],
+          "prerequisites": [
+            "AP Computer Science A",
+            "AP Cybersecurity"
+          ],
+          "prereqLogic": "any",
+          "tag": "Coming Soon",
+          "videoUrl": ""
+        }
+      ]
+    },
+    {
+      "name": "STEM",
+      "courses": [
+        {
+          "title": "AP Computer Science Principles",
+          "grades": "9",
+          "desc": "",
+          "teachers": [],
+          "prerequisites": [],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "AP Computer Science A",
+          "grades": "10",
+          "desc": "",
+          "teachers": [],
+          "prerequisites": [
+            "AP Computer Science Principles"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "AP Cybersecurity",
+          "grades": "11",
+          "desc": "",
+          "teachers": [],
+          "prerequisites": [
+            "AP Computer Science A"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "AP Networking",
+          "grades": "12",
+          "desc": "",
+          "teachers": [],
+          "prerequisites": [
+            "AP Cybersecurity"
+          ],
+          "prereqLogic": "all",
+          "tag": "Choose one"
+        },
+        {
+          "title": "Georgia Tech 1301",
+          "grades": "12",
+          "desc": "",
+          "teachers": [],
+          "prerequisites": [
+            "AP Cybersecurity"
+          ],
+          "prereqLogic": "all",
+          "tag": "Choose one"
+        },
+        {
+          "title": "Computer Science Capstone",
+          "grades": "12",
+          "desc": "",
+          "teachers": [],
+          "prerequisites": [
+            "AP Cybersecurity"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        }
+      ]
+    }
+  ],
   "clubs": []
 }

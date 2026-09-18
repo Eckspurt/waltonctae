@@ -57,11 +57,13 @@ collections:
             value_field: "teachers.*.name"
             multiple: true
             hint: "Everyone who teaches somewhere in this pathway. To add someone new, add them under Sitewide Content → Teachers first."
-          - label: "Pathway"
-            name: "pathway"
-            widget: "object"
+          - label: "Pathways"
+            name: "pathways"
+            widget: "list"
+            summary: "{{name}}"
+            hint: "Most departments have one pathway. Add another to offer a separate track (like STEM) as its own tab on the page. A course with the same title in more than one pathway is treated as the same course and shown once in Course Details."
             fields:
-              - { label: "Pathway Name", name: "name", widget: "string" }
+              - { label: "Pathway Name", name: "name", widget: "string", hint: "Shown as the tab label when a department has more than one pathway." }
               - label: "Courses"
                 name: "courses"
                 widget: "list"
@@ -70,9 +72,9 @@ collections:
                   - label: "Course Title"
                     name: "title"
                     widget: "string"
-                    hint: "Must be unique within this pathway — other courses refer to it by this exact title as a prerequisite."
-                  - { label: "Grades", name: "grades", widget: "string" }
-                  - { label: "Description", name: "desc", widget: "text" }
+                    hint: "Must be unique within this pathway — other courses refer to it by this exact title as a prerequisite. Use the exact same title in another pathway to reuse this course there."
+                  - { label: "Grades", name: "grades", widget: "string", hint: "Grades for this course in this pathway, e.g. 9–12 or just 10." }
+                  - { label: "Description", name: "desc", widget: "text", required: false, hint: "In a second or later pathway, leave the description, teachers, and video blank to reuse the ones from the same-titled course in the first pathway." }
                   - label: "Teachers for this course"
                     name: "teachers"
                     widget: "relation"

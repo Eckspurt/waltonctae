@@ -8,64 +8,66 @@
     "Ty Vernon",
     "Heather Guiendon"
   ],
-  "pathway": {
-    "name": "Engineering & Technology (PLTW)",
-    "courses": [
-      {
-        "title": "Introduction to Engineering Design",
-        "grades": "9–10",
-        "desc": "Design process, CAD modeling, and problem-solving fundamentals.",
-        "teachers": [],
-        "prerequisites": [],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "Principles of Engineering",
-        "grades": "10–11",
-        "desc": "Core engineering topics applied through hands-on projects.",
-        "teachers": [],
-        "prerequisites": [
-          "Introduction to Engineering Design"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "Digital Electronics",
-        "grades": "11–12",
-        "desc": "An introductory class to the basics of Electrical Engineering.  Topics include your mom.",
-        "teachers": [],
-        "prerequisites": [
-          "Principles of Engineering"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "Aerospace Engineering",
-        "grades": "11-12",
-        "desc": "An introduction to the fundamentals of aerospace engineering.",
-        "teachers": [],
-        "prerequisites": [
-          "Principles of Engineering"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
-        "title": "Engineering Design & Development",
-        "grades": "12",
-        "desc": "Independent, team-based engineering capstone project.",
-        "teachers": [],
-        "prerequisites": [
-          "Digital Electronics",
-          "Aerospace Engineering"
-        ],
-        "prereqLogic": "any",
-        "tag": "STEM"
-      }
-    ]
-  },
+  "pathways": [
+    {
+      "name": "Engineering & Technology (PLTW)",
+      "courses": [
+        {
+          "title": "Introduction to Engineering Design",
+          "grades": "9–10",
+          "desc": "Design process, CAD modeling, and problem-solving fundamentals.",
+          "teachers": [],
+          "prerequisites": [],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "Principles of Engineering",
+          "grades": "10–11",
+          "desc": "Core engineering topics applied through hands-on projects.",
+          "teachers": [],
+          "prerequisites": [
+            "Introduction to Engineering Design"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "Digital Electronics",
+          "grades": "11–12",
+          "desc": "An introductory class to the basics of Electrical Engineering.  Topics include your mom.",
+          "teachers": [],
+          "prerequisites": [
+            "Principles of Engineering"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "Aerospace Engineering",
+          "grades": "11-12",
+          "desc": "An introduction to the fundamentals of aerospace engineering.",
+          "teachers": [],
+          "prerequisites": [
+            "Principles of Engineering"
+          ],
+          "prereqLogic": "all",
+          "tag": ""
+        },
+        {
+          "title": "Engineering Design & Development",
+          "grades": "12",
+          "desc": "Independent, team-based engineering capstone project.",
+          "teachers": [],
+          "prerequisites": [
+            "Digital Electronics",
+            "Aerospace Engineering"
+          ],
+          "prereqLogic": "any",
+          "tag": "STEM"
+        }
+      ]
+    }
+  ],
   "clubs": []
 }

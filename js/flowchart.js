@@ -25,7 +25,13 @@
   prerequisite) without drawing a prerequisite arrow.
 */
 
-function renderFlowchart(container, pathway, accent) {
+let flowchartCount = 0;
+
+// Renders one pathway and returns a function that redraws its connector lines
+// (call it after un-hiding a chart that was rendered while hidden, e.g. a tab).
+// opts.showName === false omits the pathway-name label (when tabs already show it).
+function renderFlowchart(container, pathway, accent, opts = {}) {
+  const markerId = `flow-arrowhead-${flowchartCount++}`;
   container.style.setProperty("--accent", accent);
 
   const courses = pathway.courses || [];
@@ -66,7 +72,7 @@ function renderFlowchart(container, pathway, accent) {
             <a class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}"
                href="#course-${slugify(c.title)}">
               ${tagHtml}
-              <div class="flow-card-grades">Grades ${c.grades}</div>
+              <div class="flow-card-grades">${gradesLabel(c.grades)}</div>
               <div class="flow-card-title">${c.title}</div>
             </a>
           `;
@@ -77,7 +83,7 @@ function renderFlowchart(container, pathway, accent) {
     .join("");
 
   container.innerHTML = `
-    <div class="pathway-name">${pathway.name}</div>
+    ${opts.showName === false ? "" : `<div class="pathway-name">${pathway.name}</div>`}
     <div class="flowchart-scroll">
       <div class="flowchart-grid">
         <svg class="flowchart-lines" aria-hidden="true"></svg>
@@ -86,15 +92,17 @@ function renderFlowchart(container, pathway, accent) {
     </div>
   `;
 
-  drawConnectors(container, courses);
-  const redraw = () => drawConnectors(container, courses);
+  const redraw = () => drawConnectors(container, courses, markerId);
+  redraw();
   window.addEventListener("resize", debounce(redraw, 150));
+  return redraw;
 }
 
-function drawConnectors(container, courses) {
+function drawConnectors(container, courses, markerId) {
   const grid = container.querySelector(".flowchart-grid");
   const svg = container.querySelector(".flowchart-lines");
   if (!grid || !svg) return;
+  if (!grid.offsetWidth) return; // hidden (e.g. an inactive tab): nothing to measure yet
 
   const elByTitle = new Map();
   grid.querySelectorAll(".flow-card").forEach((el) => {
@@ -120,7 +128,7 @@ function drawConnectors(container, courses) {
 
   let paths = `
     <defs>
-      <marker id="flow-arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <marker id="${markerId}" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
         <path d="M0,0 L8,4 L0,8 Z" />
       </marker>
     </defs>
@@ -138,7 +146,7 @@ function drawConnectors(container, courses) {
       const y1 = fromRect.top - gridRect.top + fromRect.height / 2;
       const x2 = toRect.left - gridRect.left;
       const y2 = toRect.top - gridRect.top + toRect.height / 2;
-      paths += `<path marker-end="url(#flow-arrowhead)" d="M ${x1} ${y1} L ${x2} ${y2}" />`;
+      paths += `<path marker-end="url(#${markerId})" d="M ${x1} ${y1} L ${x2} ${y2}" />`;
     });
   });
 
