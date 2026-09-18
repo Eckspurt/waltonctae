@@ -2,8 +2,8 @@
   "name": "Graphic Arts",
   "icon": "🖥️",
   "accent": "#B0348C",
-  "tagline": "Turn ideas into visual designs for print and digital media.",
-  "description": "The Graphic Arts pathway teaches visual design principles, typography, and industry-standard design software. Students build a portfolio of print and digital work, from branding projects to publication layouts.",
+  "tagline": "Got an idea? Let’s turn it into something people can see, share, and remember!",
+  "description": "In Graphic Arts, students learn how to think like designers and create like professionals. From bold logos and eye-catching advertisements to magazine layouts, T-shirts, packaging, and digital graphics, students use Adobe Illustrator, Photoshop, and InDesign to bring their ideas to life.\n\nAlong the way, students explore color, composition, typography, branding, and visual communication while building a portfolio of real-world design projects. Whether you’re already a creative pro or just discovering your design skills, there’s always something new to create!",
   "teachers": [
     "Patti Cowles"
   ],
@@ -11,57 +11,44 @@
     "name": "Graphic Design",
     "courses": [
       {
-        "title": "Intro to Digital Technology",
-        "grades": "9–10",
-        "desc": "Foundational course covering digital media tools and concepts.",
+        "title": "Intro to Graphic Design",
+        "grades": "9–12",
+        "desc": "Students explore the fundamentals of graphic design through hands-on projects that introduce color, typography, composition, branding, layout, and visual communication.\n\nUsing industry-standard Adobe software, students learn the basics of Illustrator, and Photoshop while creating everything from logos and advertisements to digital graphics and print projects.\n\nNo previous design experience is needed — just curiosity, creativity, and a willingness to try new things! This course gives students the foundation they need to continue through the Graphic Design and Graphic Communication pathways while discovering how creative ideas can become real-world designs.",
         "teachers": [],
         "prerequisites": [],
         "prereqLogic": "all",
         "tag": ""
       },
       {
-        "title": "Graphic Design I",
-        "grades": "10–11",
-        "desc": "Design fundamentals, typography, and layout software.",
+        "title": "Graphic Design and Production",
+        "grades": "10-12",
+        "desc": "In Graphic Design & Production, students build on the skills they learned in Intro and begin working more like professional graphic designers. Students tackle larger, more challenging projects while developing their skills in Adobe Illustrator, Photoshop, and InDesign.\n\nFrom creating logos and brand identities to posters, publications, packaging, T-shirts, and other print and digital projects, students learn how to take a design from an initial idea all the way to a finished product.\n\nStudents also get hands-on experience with print production and the graphic arts process, learning how designs are prepared, produced, and turned into something you can actually hold, wear, and share.\n\nMore creativity. More projects. More real-world design experience. This is where students start building a portfolio that shows what they can really do!",
         "teachers": [],
         "prerequisites": [
-          "Intro to Digital Technology"
+          "Intro to Graphic Design"
         ],
         "prereqLogic": "all",
         "tag": ""
       },
       {
-        "title": "Graphic Design II — Advanced",
+        "title": "Advanced Graphic Design",
         "grades": "11–12",
-        "desc": "Advanced projects, branding, and portfolio development.",
+        "desc": "You’ve learned the tools. Now it’s time to make them your own!\n\nAdvanced Graphic Design is the capstone of the Graphic Design pathway and challenges students to push their creativity, sharpen their design skills, and begin working more like professional designers. Students take on complex, real-world design projects that require thoughtful concepts, strong visual communication, and attention to detail.\n\nUsing Adobe Illustrator, Photoshop, and InDesign, students explore advanced techniques in branding, typography, illustration, advertising, publication design, packaging, and digital media. Projects are designed to give students creative freedom while teaching them how to develop an idea, respond to a design challenge, and produce polished, professional-quality work.\n\nStudents also begin developing their personal design style and professional portfolio, preparing them for future careers, internships, college programs, and creative opportunities.\n\nBigger ideas. Stronger skills. More creative freedom. This is where students stop simply learning graphic design and start discovering what kind of designer they want to be.",
         "teachers": [],
         "prerequisites": [
-          "Graphic Design I"
+          "Graphic Design and Production"
         ],
         "prereqLogic": "all",
         "tag": ""
       },
       {
-        "title": "Commercial Photography",
-        "grades": "11–12",
-        "desc": "Photography techniques for advertising and editorial use.",
-        "teachers": [],
-        "prerequisites": [
-          "Graphic Design I"
-        ],
         "prereqLogic": "all",
-        "tag": "Elective"
-      },
-      {
-        "title": "Work-Based Learning",
+        "title": "Advanced Graphic Outputs and Processes",
         "grades": "12",
-        "desc": "Paid or unpaid placement with a local design employer.",
-        "teachers": [],
+        "desc": "Ready to take the lead? Your designs are only part of the job—now you’re running the show!\n\nAdvanced Graphic Output Processes is the capstone of the Graphic Communication pathway, where students take on the role of designer, project manager, and team leader. Students work on larger, more complex projects that require them to plan, organize, communicate, problem-solve, and meet real-world deadlines.\n\nStudents learn what it takes to move a project from concept to completion while working with clients, collaborating with team members, delegating responsibilities, managing production schedules, and making sure the final product meets professional expectations.\n\nWhether they’re developing branding, preparing files for print, producing apparel, creating promotional materials, or managing a team project, students gain experience with the behind-the-scenes skills that make a creative team successful.\n\nCreate it. Plan it. Produce it. Lead it. This is where students put everything they’ve learned to work and prepare for the next step into college, careers, and the creative industry.",
         "prerequisites": [
-          "Graphic Design II — Advanced"
-        ],
-        "prereqLogic": "all",
-        "tag": "Capstone option"
+          "Advanced Graphic Design"
+        ]
       }
     ]
   },
