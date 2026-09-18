@@ -36,7 +36,7 @@
           "Intro to Business & Technology"
         ],
         "prereqLogic": "all",
-        "tag": "Elective"
+        "tag": ""
       },
       {
         "title": "Financial Literacy",
@@ -51,7 +51,7 @@
           "& Insurance"
         ],
         "prereqLogic": "all",
-        "tag": "Elective"
+        "tag": ""
       },
       {
         "title": "AP Business & Personal Finance",
