@@ -70,7 +70,8 @@
         "desc": "Work-based learning program connects high school academic instruction with structured, real-world industry experience, allowing qualified students to earn CTAE course credit",
         "teachers": [],
         "prerequisites": [],
-        "prereqLogic": null,
+        "prereqLogic": "all",
+        "minColumn": 3,
         "tag": ""
       }
     ]

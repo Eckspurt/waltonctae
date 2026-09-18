@@ -106,6 +106,12 @@ collections:
                     options:
                       - { label: "All required", value: "all" }
                       - { label: "Any one of them", value: "any" }
+                  - label: "Minimum Column (rarely needed)"
+                    name: "minColumn"
+                    widget: "number"
+                    value_type: "int"
+                    required: false
+                    hint: "Only set this if a course needs to visually appear further right than its Prerequisites alone would place it — e.g. a senior-only course with no true prerequisite. 1 = first column. This does NOT add a prerequisite arrow. Leave blank for normal automatic placement."
                   - label: "Tag (optional badge)"
                     name: "tag"
                     widget: "string"

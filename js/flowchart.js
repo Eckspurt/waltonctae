@@ -12,6 +12,7 @@
         prerequisites: ["Course Title", ...],    // titles of other courses in this list
         prereqLogic: "all" | "any",              // only matters when >1 prerequisite
         tag: "Elective" | "Capstone option" | ...  // optional small badge
+        minColumn: 3                             // optional, 1-indexed override, no arrow implied
       },
       ...
     ]
@@ -19,7 +20,9 @@
 
   Course levels (columns) are derived from the prerequisite graph rather
   than a fixed order, so branches (e.g. two courses that both unlock a
-  later one) lay out correctly left-to-right.
+  later one) lay out correctly left-to-right. minColumn lets a course be
+  pushed further right (e.g. a senior-only course with no true
+  prerequisite) without drawing a prerequisite arrow.
 */
 
 function renderFlowchart(container, pathway, accent) {
@@ -36,9 +39,11 @@ function renderFlowchart(container, pathway, accent) {
     const prereqs = (course.prerequisites || [])
       .map((t) => byTitle.get(t))
       .filter(Boolean);
-    const level = prereqs.length
+    const prereqLevel = prereqs.length
       ? 1 + Math.max(...prereqs.map((p) => levelOf(p, stack)))
       : 0;
+    const minLevel = course.minColumn ? course.minColumn - 1 : 0;
+    const level = Math.max(prereqLevel, minLevel);
     levelCache.set(course.title, level);
     return level;
   }
