@@ -45,7 +45,11 @@
         "teachers": [
           "Rob Nichols"
         ],
-        "prerequisites": [],
+        "prerequisites": [
+          "Intro to Business & Technology; Banking",
+          "Investing",
+          "& Insurance"
+        ],
         "prereqLogic": "all",
         "tag": ""
       },
@@ -53,21 +57,25 @@
         "title": "Financial Literacy",
         "grades": "11–12",
         "desc": "The course is designed to help students understand personal finance, manage money wisely, set financial goals, and develop realistic, measurable objectives to become \"MONEY SMART!\"",
-        "teachers": [],
-        "prerequisites": [],
-        "prereqLogic": null,
+        "teachers": [
+          "Rob Nichols"
+        ],
+        "prerequisites": [
+          "Intro to Business & Technology; Banking",
+          "Investing",
+          "& Insurance"
+        ],
+        "prereqLogic": "all",
         "tag": "Elective"
       },
       {
         "title": "Work-Based Learning",
         "grades": "12",
-        "desc": "Paid or unpaid placement with a local business employer.",
+        "desc": "Work-based learning program connects high school academic instruction with structured, real-world industry experience, allowing qualified students to earn CTAE course credit",
         "teachers": [],
-        "prerequisites": [
-          "Advanced Business Management"
-        ],
-        "prereqLogic": "all",
-        "tag": "Capstone option"
+        "prerequisites": [],
+        "prereqLogic": null,
+        "tag": ""
       }
     ]
   },
