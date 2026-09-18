@@ -106,7 +106,8 @@
             "AP Cybersecurity"
           ],
           "prereqLogic": "all",
-          "tag": "Choose one"
+          "tag": "Coming Soon",
+          "choiceGroup": "Choose one"
         },
         {
           "title": "Georgia Tech 1301",
@@ -117,7 +118,8 @@
             "AP Cybersecurity"
           ],
           "prereqLogic": "all",
-          "tag": "Choose one"
+          "tag": "",
+          "choiceGroup": "Choose one"
         },
         {
           "title": "Computer Science Capstone",
@@ -128,7 +130,8 @@
             "AP Cybersecurity"
           ],
           "prereqLogic": "all",
-          "tag": ""
+          "tag": "",
+          "together": true
         }
       ]
     }

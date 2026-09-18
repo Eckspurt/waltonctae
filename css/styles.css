@@ -361,36 +361,106 @@ section { padding: 64px 0; }
   box-shadow: var(--shadow);
 }
 
+/* Folder-style tabs: the selected tab shares the panel's white background and
+   overlaps its top border, so it reads as one connected piece. */
 .pathway-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
+  align-items: flex-end;
+  gap: 4px;
+  margin: 24px 0 -1px;
 }
 
 .pathway-tab {
+  position: relative;
   font: inherit;
   font-size: 0.92rem;
   font-weight: 600;
-  padding: 9px 18px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: var(--white);
+  padding: 10px 22px;
+  background: #eceef5;
   color: var(--ink-soft);
+  border: 1px solid var(--border);
+  border-bottom-color: var(--border);
+  border-radius: 10px 10px 0 0;
   cursor: pointer;
 }
 
-.pathway-tab:hover { border-color: var(--accent); color: var(--ink); }
+.pathway-tab:hover { background: #e2e5ef; color: var(--ink); }
 
 .pathway-tab[aria-selected="true"] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--white);
+  z-index: 2;
+  padding: 13px 26px 12px;
+  background: var(--white);
+  color: var(--ink);
+  border-top: 3px solid var(--accent);
+  border-bottom-color: var(--white);
 }
 
-.pathway-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pathway-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-.flowchart-wrap[hidden] { display: none; }
+.pathway-tabs ~ .flowchart-wrap { border-top-left-radius: 0; }
+
+.flowchart-wrap[hidden],
+.course-detail-list[hidden] { display: none; }
+
+/* "Choose one" group of alternatives, with an OR between them, and an AND
+   joiner for a course taken in addition to the block above it. */
+.flow-choice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 10px 12px;
+  border: 2px dashed var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 60%, white);
+  border-radius: 14px;
+}
+
+.flow-choice-label {
+  position: absolute;
+  top: -11px;
+  left: 14px;
+  padding: 2px 10px;
+  background: var(--white);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 60%, white);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.flow-or {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.flow-or::before,
+.flow-or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.flow-and {
+  align-self: center;
+  margin: -6px 0;
+  padding: 3px 12px;
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
 
 .pathway-name {
   font-weight: 700;

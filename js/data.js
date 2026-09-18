@@ -98,32 +98,6 @@ function getPathways(dept) {
   }));
 }
 
-// Every distinct course across a department's pathways, in order of first
-// appearance, with each pathway's version of it: [{ course, entries: [{ pathway, course }] }]
-function buildCourseCatalog(pathways) {
-  const byTitle = new Map();
-  pathways.forEach((pathway) =>
-    pathway.courses.forEach((course) => {
-      if (!byTitle.has(course.title)) byTitle.set(course.title, { course, entries: [] });
-      byTitle.get(course.title).entries.push({ pathway, course });
-    })
-  );
-  return [...byTitle.values()];
-}
-
-// Groups a course's per-pathway entries by a value, so identical values can be
-// shown once and differing ones labelled by pathway: [{ value, names: [pathway names] }]
-function groupPathwaysBy(entries, getValue) {
-  const groups = [];
-  entries.forEach(({ pathway, course }) => {
-    const value = getValue(course);
-    const group = groups.find((g) => g.value === value);
-    if (group) group.names.push(pathway.name);
-    else groups.push({ value, names: [pathway.name] });
-  });
-  return groups;
-}
-
 // "10–12" -> "Grades 10–12"; "9" -> "Grade 9"
 function gradesLabel(grades) {
   const s = String(grades || "").trim();

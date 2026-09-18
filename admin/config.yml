@@ -114,6 +114,17 @@ collections:
                     value_type: "int"
                     required: false
                     hint: "Only set this if a course needs to visually appear further right than its Prerequisites alone would place it — e.g. a senior-only course with no true prerequisite. 1 = first column. This does NOT add a prerequisite arrow. Leave blank for normal automatic placement."
+                  - label: "Choice group (optional)"
+                    name: "choiceGroup"
+                    widget: "string"
+                    required: false
+                    hint: "To show courses as alternatives (\"pick one\"), give each the same label here, e.g. Choose one. Courses with the same label in the same column are drawn together in a dashed box with OR between them."
+                  - label: "Taken together with the course/group above (optional)"
+                    name: "together"
+                    widget: "boolean"
+                    required: false
+                    default: false
+                    hint: "Check this for a course students take in addition to (not instead of) the one above it in the same column. The chart shows AND between them. Order in the Courses list decides what counts as \"above\"."
                   - label: "Tag (optional badge)"
                     name: "tag"
                     widget: "string"

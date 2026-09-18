@@ -30,6 +30,9 @@ let flowchartCount = 0;
 // Renders one pathway and returns a function that redraws its connector lines
 // (call it after un-hiding a chart that was rendered while hidden, e.g. a tab).
 // opts.showName === false omits the pathway-name label (when tabs already show it).
+// opts.anchorPrefix is the id prefix of the matching Course Details cards.
+// A course may set choiceGroup (drawn with others of the same label as "choose
+// one", joined by OR) and together (an AND joiner between it and the block above).
 function renderFlowchart(container, pathway, accent, opts = {}) {
   const markerId = `flow-arrowhead-${flowchartCount++}`;
   container.style.setProperty("--accent", accent);
@@ -61,24 +64,58 @@ function renderFlowchart(container, pathway, accent, opts = {}) {
   const columns = Array.from({ length: maxLevel + 1 }, () => []);
   courses.forEach((c) => columns[levelCache.get(c.title)].push(c));
 
+  const anchorPrefix = opts.anchorPrefix || "course-";
+
+  const cardHtml = (c) => {
+    const tagHtml = c.tag ? `<span class="flow-card-tag">${c.tag}</span>` : "";
+    return `
+      <a class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}"
+         href="#${anchorPrefix}${slugify(c.title)}">
+        ${tagHtml}
+        <div class="flow-card-grades">${gradesLabel(c.grades)}</div>
+        <div class="flow-card-title">${c.title}</div>
+      </a>
+    `;
+  };
+
+  // Within a column, courses sharing a choiceGroup label become one "choose one"
+  // block (OR between them); any other course is a block on its own. A block
+  // marked `together` gets an AND joiner between it and the block above it.
+  const blocksOf = (col) => {
+    const blocks = [];
+    const groups = new Map();
+    col.forEach((c) => {
+      if (c.choiceGroup) {
+        let block = groups.get(c.choiceGroup);
+        if (!block) {
+          block = { label: c.choiceGroup, courses: [], together: false };
+          groups.set(c.choiceGroup, block);
+          blocks.push(block);
+        }
+        block.courses.push(c);
+        if (c.together) block.together = true;
+      } else {
+        blocks.push({ courses: [c], together: !!c.together });
+      }
+    });
+    return blocks;
+  };
+
   const cardsHtml = columns
     .map((col) => {
-      const cardsInCol = col
-        .map((c) => {
-          const tagHtml = c.tag
-            ? `<span class="flow-card-tag">${c.tag}</span>`
-            : "";
-          return `
-            <a class="flow-card" data-title="${c.title.replace(/"/g, "&quot;")}"
-               href="#course-${slugify(c.title)}">
-              ${tagHtml}
-              <div class="flow-card-grades">${gradesLabel(c.grades)}</div>
-              <div class="flow-card-title">${c.title}</div>
-            </a>
-          `;
+      const blocksHtml = blocksOf(col)
+        .map((block, i) => {
+          const joiner = i > 0 && block.together ? `<div class="flow-and">AND</div>` : "";
+          const body = block.label
+            ? `<div class="flow-choice">
+                 <span class="flow-choice-label">${block.label}</span>
+                 ${block.courses.map(cardHtml).join(`<div class="flow-or">OR</div>`)}
+               </div>`
+            : cardHtml(block.courses[0]);
+          return joiner + body;
         })
         .join("");
-      return `<div class="flow-column">${cardsInCol}</div>`;
+      return `<div class="flow-column">${blocksHtml}</div>`;
     })
     .join("");
 

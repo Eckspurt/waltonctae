@@ -54,6 +54,11 @@
 
       const pathways = getPathways(dept);
 
+      // Each pathway has its own chart and its own Course Details list (shown
+      // when its tab is selected). With several pathways, card ids are prefixed
+      // per pathway so a course they share still gets a unique anchor in each.
+      const anchorPrefix = (i) => (pathways.length > 1 ? `course-p${i}-` : "course-");
+
       const prereqSummary = (c) =>
         c.prerequisites && c.prerequisites.length
           ? `Requires ${
@@ -63,16 +68,7 @@
             }`
           : "";
 
-      // Each course appears once, even if it's in several pathways. Where its
-      // grades or prerequisites differ between pathways, each version is labelled.
-      const perPathway = (entries, getValue, format) => {
-        const groups = groupPathwaysBy(entries, getValue).filter((g) => g.value);
-        const differs = groupPathwaysBy(entries, getValue).length > 1;
-        return groups.map((g) => (differs ? `${format(g.value)} (${g.names.join(", ")})` : format(g.value)));
-      };
-
-      const courseDetailsHtml = buildCourseCatalog(pathways)
-        .map(({ course: c, entries }) => {
+      const courseDetailHtml = (c, pathwayIndex) => {
           const courseTeacherNames =
             c.teachers && c.teachers.length ? c.teachers : dept.teachers || [];
           const courseTeachers = resolveTeachers(courseTeacherNames, teacherMap);
@@ -96,10 +92,9 @@
                      .join("")}
                  </div>`
               : "";
-          const prereqHtml = perPathway(entries, prereqSummary, (t) => t)
-            .map((line) => `<div class="course-detail-prereq">${line}</div>`)
-            .join("");
-          const gradesText = perPathway(entries, (x) => x.grades, gradesLabel).join(" · ");
+          const prereqHtml = prereqSummary(c)
+            ? `<div class="course-detail-prereq">${prereqSummary(c)}</div>`
+            : "";
           const tagHtml = c.tag
             ? `<span class="course-detail-tag">${c.tag}</span>`
             : "";
@@ -112,9 +107,9 @@
                </div>`
             : "";
           return `
-            <div class="course-detail" id="course-${slugify(c.title)}" style="--accent:${dept.accent}">
+            <div class="course-detail" id="${anchorPrefix(pathwayIndex)}${slugify(c.title)}" style="--accent:${dept.accent}">
               <div class="course-detail-meta">
-                <span class="course-detail-grades">${gradesText}</span>
+                <span class="course-detail-grades">${gradesLabel(c.grades)}</span>
               </div>
               <h3>${c.title} ${tagHtml}</h3>
               ${prereqHtml}
@@ -123,7 +118,15 @@
               ${teachersHtml}
             </div>
           `;
-        })
+      };
+
+      const courseDetailsHtml = pathways
+        .map(
+          (p, i) =>
+            `<div class="course-detail-list" id="details-${i}"${i > 0 ? " hidden" : ""}>${p.courses
+              .map((c) => courseDetailHtml(c, i))
+              .join("")}</div>`
+        )
         .join("");
 
       const clubs = [...(await loadSiteClubs()), ...(dept.clubs || [])];
@@ -218,7 +221,7 @@
               ? `<div class="pathway-tabs" role="tablist" style="--accent:${dept.accent}">${pathways
                   .map(
                     (p, i) =>
-                      `<button type="button" class="pathway-tab" role="tab" id="pathway-tab-${i}" aria-controls="flowchart-${i}" aria-selected="${i === 0}" data-index="${i}">${p.name}</button>`
+                      `<button type="button" class="pathway-tab" role="tab" id="pathway-tab-${i}" aria-controls="flowchart-${i} details-${i}" aria-selected="${i === 0}" data-index="${i}">${p.name}</button>`
                   )
                   .join("")}</div>`
               : ""
@@ -240,7 +243,7 @@
           : null,
         `
           <h2 class="section-title">Course Details</h2>
-          <div class="course-detail-list">${courseDetailsHtml}</div>
+          ${courseDetailsHtml}
         `,
         clubs.length
           ? `
@@ -277,7 +280,8 @@
 
       const redraws = pathways.map((p, i) =>
         renderFlowchart(document.getElementById(`flowchart-${i}`), p, dept.accent, {
-          showName: pathways.length === 1
+          showName: pathways.length === 1,
+          anchorPrefix: anchorPrefix(i)
         })
       );
 
@@ -289,6 +293,7 @@
             .forEach((t, i) => t.setAttribute("aria-selected", String(i === active)));
           pathways.forEach((_, i) => {
             document.getElementById(`flowchart-${i}`).hidden = i !== active;
+            document.getElementById(`details-${i}`).hidden = i !== active;
           });
           redraws[active]();
         });
