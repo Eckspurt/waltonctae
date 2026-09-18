@@ -4,7 +4,10 @@
   "accent": "#0E7C7B",
   "tagline": "Learn to think computationally.",
   "description": "The Computer Science pathway teaches programming, cybersecurity, and networking. Students start with AP Computer Science Principles, then branch into AP Computer Science A and/or AP Cybersecurity before converging on AP Networking.",
-  "teachers": ["Whit Hubbard", "Linda Vu"],
+  "teachers": [
+    "Whit Hubbard",
+    "Linda Vu"
+  ],
   "pathway": {
     "name": "Computer Science",
     "courses": [
@@ -15,30 +18,34 @@
         "teachers": [],
         "prerequisites": [],
         "prereqLogic": "all",
-        "tag": "",
+        "tag": "Advanced Placement",
         "videoUrl": "https://youtu.be/7NLrlrsFbS8"
       },
       {
         "title": "AP Computer Science A",
         "grades": "11–12",
         "desc": "AP Computer Science A is equivalent to a first-semester, college-level course in computer science. The course emphasizes both object-oriented and imperative problem solving and design using the Java programming language. Topics include problem solving, design strategies and methodologies, organization of data (data structures), approaches to processing data (algorithms), analysis of potential solutions, and the ethical and social implications of computing.",
-        "teachers": ["Whit Hubbard"],
+        "teachers": [
+          "Whit Hubbard"
+        ],
         "prerequisites": [
           "AP Computer Science Principles"
         ],
         "prereqLogic": "all",
-        "tag": ""
+        "tag": "Advanced Placement"
       },
       {
         "title": "AP Cybersecurity",
         "grades": "11–12",
         "desc": "AP Cybersecurity trains students in the field and aligns closely with standard first-year collegiate cybersecurity courses. Students explore defense-in-depth strategies and learn to address specific vulnerabilities, attacks, mitigations, and detection measures across a variety of domains, including physical spaces, computer networks, devices, applications, and data.",
-        "teachers": ["Whit Hubbard"],
+        "teachers": [
+          "Whit Hubbard"
+        ],
         "prerequisites": [
           "AP Computer Science Principles"
         ],
         "prereqLogic": "all",
-        "tag": ""
+        "tag": "Advanced Placement"
       },
       {
         "title": "AP Networking",
