@@ -40,28 +40,6 @@
         ],
         "prereqLogic": "all",
         "tag": ""
-      },
-      {
-        "title": "Commercial Photography",
-        "grades": "11–12",
-        "desc": "Photography techniques for advertising and editorial use.",
-        "teachers": [],
-        "prerequisites": [
-          "Graphic Design I"
-        ],
-        "prereqLogic": "all",
-        "tag": "Elective"
-      },
-      {
-        "title": "Work-Based Learning",
-        "grades": "12",
-        "desc": "Paid or unpaid placement with a local design employer.",
-        "teachers": [],
-        "prerequisites": [
-          "Graphic Design II — Advanced"
-        ],
-        "prereqLogic": "all",
-        "tag": "Capstone option"
       }
     ]
   },
