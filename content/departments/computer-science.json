@@ -18,7 +18,7 @@
         "teachers": [],
         "prerequisites": [],
         "prereqLogic": "all",
-        "tag": "Advanced Placement",
+        "tag": "",
         "videoUrl": "https://youtu.be/7NLrlrsFbS8"
       },
       {
@@ -32,7 +32,7 @@
           "AP Computer Science Principles"
         ],
         "prereqLogic": "all",
-        "tag": "Advanced Placement"
+        "tag": ""
       },
       {
         "title": "AP Cybersecurity",
@@ -45,7 +45,7 @@
           "AP Computer Science Principles"
         ],
         "prereqLogic": "all",
-        "tag": "Advanced Placement"
+        "tag": ""
       },
       {
         "title": "AP Networking",
