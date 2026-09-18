@@ -5,6 +5,8 @@
   --gray: #4b5563;
   --gray-dark: #33393f;
   --red: #c8102e;
+  --blue: #1a4fbf;
+  --blue-dark: #153f9c;
   --white: #ffffff;
   --ink: #1a2233;
   --ink-soft: #4a5468;
@@ -182,8 +184,8 @@ header.site-header {
   border: 1px solid transparent;
 }
 
-.btn-primary { background: var(--red); color: var(--white); }
-.btn-primary:hover { background: #a80d26; }
+.btn-primary { background: var(--blue); color: var(--white); }
+.btn-primary:hover { background: var(--blue-dark); }
 
 .btn-secondary {
   background: transparent;
