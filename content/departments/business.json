@@ -39,21 +39,6 @@
         "tag": "Elective"
       },
       {
-        "title": "AP Business & Personal Finance",
-        "grades": "11–12",
-        "desc": "AP Business with Personal Finance is an introductory, college-level business and personal finance course. Students explore the business disciplines of entrepreneurship, marketing, finance, accounting, and management through real-world business application, case studies, and project-based learning. In addition, students learn and apply all the National Standards for Personal Financial Education created by the Council for Economic Education and the Jump$tart Coalition for Personal Financial Literacy. ",
-        "teachers": [
-          "Rob Nichols"
-        ],
-        "prerequisites": [
-          "Intro to Business & Technology; Banking",
-          "Investing",
-          "& Insurance"
-        ],
-        "prereqLogic": "all",
-        "tag": ""
-      },
-      {
         "title": "Financial Literacy",
         "grades": "11–12",
         "desc": "The course is designed to help students understand personal finance, manage money wisely, set financial goals, and develop realistic, measurable objectives to become \"MONEY SMART!\"",
@@ -67,6 +52,21 @@
         ],
         "prereqLogic": "all",
         "tag": "Elective"
+      },
+      {
+        "title": "AP Business & Personal Finance",
+        "grades": "11–12",
+        "desc": "AP Business with Personal Finance is an introductory, college-level business and personal finance course. Students explore the business disciplines of entrepreneurship, marketing, finance, accounting, and management through real-world business application, case studies, and project-based learning. In addition, students learn and apply all the National Standards for Personal Financial Education created by the Council for Economic Education and the Jump$tart Coalition for Personal Financial Literacy. ",
+        "teachers": [
+          "Rob Nichols"
+        ],
+        "prerequisites": [
+          "Intro to Business & Technology; Banking",
+          "Investing",
+          "& Insurance"
+        ],
+        "prereqLogic": "all",
+        "tag": ""
       },
       {
         "title": "Work-Based Learning",
