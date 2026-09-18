@@ -370,7 +370,7 @@ section { padding: 64px 0; }
 
 .flowchart-scroll {
   overflow-x: auto;
-  padding-bottom: 8px;
+  padding: 16px 0 8px;
 }
 
 .flowchart-grid {

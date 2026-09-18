@@ -93,7 +93,11 @@ collections:
                     name: "prerequisites"
                     widget: "list"
                     required: false
-                    hint: "Type the exact title of each course from this pathway that must be completed first. Leave empty if there's no prerequisite."
+                    hint: "Type the exact title of each course from this pathway that must be completed first. Leave empty if there's no prerequisite. Click \"Add\" for each one — don't separate multiple titles with commas, since a comma in a course's own title would get split apart."
+                    field:
+                      label: "Course Title"
+                      name: "title"
+                      widget: "string"
                   - label: "If more than one prerequisite, are they..."
                     name: "prereqLogic"
                     widget: "select"
