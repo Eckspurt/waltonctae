@@ -2,8 +2,8 @@
   "name": "Graphic Arts",
   "icon": "🖥️",
   "accent": "#B0348C",
-  "tagline": "Turn ideas into visual designs for print and digital media.",
-  "description": "The Graphic Arts pathway teaches visual design principles, typography, and industry-standard design software. Students build a portfolio of print and digital work, from branding projects to publication layouts.",
+  "tagline": "Got an idea? Let’s turn it into something people can see, share, and remember!",
+  "description": "In Graphic Arts, students learn how to think like designers and create like professionals. From bold logos and eye-catching advertisements to magazine layouts, T-shirts, packaging, and digital graphics, students use Adobe Illustrator, Photoshop, and InDesign to bring their ideas to life.\n\nAlong the way, students explore color, composition, typography, branding, and visual communication while building a portfolio of real-world design projects. Whether you’re already a creative pro or just discovering your design skills, there’s always something new to create!",
   "teachers": [
     "Patti Cowles"
   ],
@@ -11,18 +11,18 @@
     "name": "Graphic Design",
     "courses": [
       {
-        "title": "Intro to Digital Technology",
-        "grades": "9–10",
-        "desc": "Foundational course covering digital media tools and concepts.",
+        "title": "Intro to Graphic Design",
+        "grades": "9–12",
+        "desc": "Students explore the fundamentals of graphic design through hands-on projects that introduce color, typography, composition, branding, layout, and visual communication.\n\nUsing industry-standard Adobe software, students learn the basics of Illustrator, and Photoshop while creating everything from logos and advertisements to digital graphics and print projects.\n\nNo previous design experience is needed — just curiosity, creativity, and a willingness to try new things! This course gives students the foundation they need to continue through the Graphic Design and Graphic Communication pathways while discovering how creative ideas can become real-world designs.",
         "teachers": [],
         "prerequisites": [],
         "prereqLogic": "all",
         "tag": ""
       },
       {
-        "title": "Graphic Design I",
-        "grades": "10–11",
-        "desc": "Design fundamentals, typography, and layout software.",
+        "title": "Graphics Design and Production",
+        "grades": "10-12",
+        "desc": "In Graphic Design & Production, students build on the skills they learned in Intro and begin working more like professional graphic designers. Students tackle larger, more challenging projects while developing their skills in Adobe Illustrator, Photoshop, and InDesign.\n\nFrom creating logos and brand identities to posters, publications, packaging, T-shirts, and other print and digital projects, students learn how to take a design from an initial idea all the way to a finished product.\n\nStudents also get hands-on experience with print production and the graphic arts process, learning how designs are prepared, produced, and turned into something you can actually hold, wear, and share.\n\nMore creativity. More projects. More real-world design experience. This is where students start building a portfolio that shows what they can really do!",
         "teachers": [],
         "prerequisites": [
           "Intro to Digital Technology"
