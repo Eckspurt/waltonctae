@@ -54,5 +54,15 @@
       ]
     }
   ],
-  "clubs": []
+  "clubs": [
+    {
+      "tagline": "Create today, career tomorrow.",
+      "name": "Walton Graphics Club",
+      "meetingInfo": "Every other Thursday, 3:30-4:45, room 120",
+      "description": "Walton Graphics Club is a workforce-development organization at Walton High School that prepares students to become career-ready leaders and responsible community members. It starts with a focus on Graphic Design and aims to expand into additional career pathways over time. Building on this, Walton's Graphic Arts program (run alongside the club) gives students hands-on, real-world production experience.",
+      "advisors": [
+        "Patti Cowles"
+      ]
+    }
+  ]
 }
