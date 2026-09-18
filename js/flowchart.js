@@ -101,9 +101,19 @@ function drawConnectors(container, courses) {
     elByTitle.set(el.dataset.title, el);
   });
 
+  // Collapse the overlay before measuring so it can't inflate the layout it
+  // is being sized from (an SVG defaults to 300x150 and would force a scrollbar).
+  svg.setAttribute("width", 0);
+  svg.setAttribute("height", 0);
+
   const gridRect = grid.getBoundingClientRect();
-  const width = grid.scrollWidth;
-  const height = grid.scrollHeight;
+  let width = 0;
+  let height = 0;
+  elByTitle.forEach((el) => {
+    const r = el.getBoundingClientRect();
+    width = Math.max(width, r.right - gridRect.left);
+    height = Math.max(height, r.bottom - gridRect.top);
+  });
   svg.setAttribute("width", width);
   svg.setAttribute("height", height);
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
@@ -124,10 +134,10 @@ function drawConnectors(container, courses) {
       if (!fromEl) return;
       const fromRect = fromEl.getBoundingClientRect();
       const toRect = toEl.getBoundingClientRect();
-      const x1 = fromRect.right - gridRect.left + grid.scrollLeft;
-      const y1 = fromRect.top - gridRect.top + fromRect.height / 2 + grid.scrollTop;
-      const x2 = toRect.left - gridRect.left + grid.scrollLeft;
-      const y2 = toRect.top - gridRect.top + toRect.height / 2 + grid.scrollTop;
+      const x1 = fromRect.right - gridRect.left;
+      const y1 = fromRect.top - gridRect.top + fromRect.height / 2;
+      const x2 = toRect.left - gridRect.left;
+      const y2 = toRect.top - gridRect.top + toRect.height / 2;
       paths += `<path marker-end="url(#flow-arrowhead)" d="M ${x1} ${y1} L ${x2} ${y2}" />`;
     });
   });

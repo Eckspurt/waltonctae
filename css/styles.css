@@ -355,7 +355,7 @@ section { padding: 64px 0; }
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 32px;
+  padding: clamp(16px, 3vw, 32px);
   box-shadow: var(--shadow);
 }
 
@@ -370,14 +370,15 @@ section { padding: 64px 0; }
 
 .flowchart-scroll {
   overflow-x: auto;
-  padding: 16px 0 8px;
+  overflow-y: hidden;
+  padding: 16px 10px 14px;
 }
 
 .flowchart-grid {
   position: relative;
   display: flex;
   align-items: stretch;
-  gap: 40px;
+  gap: clamp(16px, 3.5vw, 40px);
 }
 
 .flow-column {
@@ -385,8 +386,8 @@ section { padding: 64px 0; }
   flex-direction: column;
   justify-content: center;
   gap: 20px;
-  flex: 1 1 190px;
-  min-width: 190px;
+  flex: 1 1 0;
+  min-width: 130px;
 }
 
 .flowchart-lines {
