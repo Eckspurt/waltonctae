@@ -4,7 +4,10 @@
   "accent": "#B23A48",
   "tagline": "Get a hands-on start toward a career in healthcare.",
   "description": "The Healthcare Science pathway introduces students to the medical field through anatomy, patient care, and clinical skills. Students can work toward industry certifications and clinical experience before graduating.",
-  "teachers": ["TBD"],
+  "teachers": [
+    "Taylor Hayes",
+    "Hannah Bolin"
+  ],
   "pathways": [
     {
       "name": "Healthcare Science",
@@ -23,7 +26,9 @@
           "grades": "10–11",
           "desc": "Anatomy & physiology basics and foundational patient-care skills.",
           "teachers": [],
-          "prerequisites": ["Introduction to Healthcare Science"],
+          "prerequisites": [
+            "Introduction to Healthcare Science"
+          ],
           "prereqLogic": "all",
           "tag": ""
         },
@@ -32,7 +37,9 @@
           "grades": "11–12",
           "desc": "Applied clinical skills preparing students for certification.",
           "teachers": [],
-          "prerequisites": ["Essentials of Healthcare"],
+          "prerequisites": [
+            "Essentials of Healthcare"
+          ],
           "prereqLogic": "all",
           "tag": ""
         },
@@ -41,7 +48,9 @@
           "grades": "12",
           "desc": "State certification coursework and clinical hours.",
           "teachers": [],
-          "prerequisites": ["Applications of Therapeutic Services"],
+          "prerequisites": [
+            "Applications of Therapeutic Services"
+          ],
           "prereqLogic": "all",
           "tag": "Certification option"
         },
@@ -50,7 +59,9 @@
           "grades": "12",
           "desc": "Supervised clinical placement with a local healthcare employer.",
           "teachers": [],
-          "prerequisites": ["Applications of Therapeutic Services"],
+          "prerequisites": [
+            "Applications of Therapeutic Services"
+          ],
           "prereqLogic": "all",
           "tag": "Capstone option"
         }
