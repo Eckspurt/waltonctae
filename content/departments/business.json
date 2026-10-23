@@ -78,5 +78,12 @@
       ]
     }
   ],
-  "clubs": []
+  "clubs": [
+    {
+      "name": "Future Business Leaders of America (FBLA)",
+      "description": "Future Business Leaders of America (FBLA) is a non-profit career and technical student organization that prepares middle school, high school, and college students for careers in business and leadership.\n\nFBLA focuses on inspiring students to become community-minded business leaders through its core tenets of service, education, and progress. Structured into middle school, high school, collegiate, and professional divisions, the organization serves a vast network of members globally. Participants engage in competitive events at various conference levels and benefit from leadership development, networking, and community service initiatives.",
+      "website": "https://www.fbla.org/about/",
+      "icon": " "
+    }
+  ]
 }
