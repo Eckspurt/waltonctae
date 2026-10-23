@@ -83,7 +83,21 @@
       "name": "Future Business Leaders of America (FBLA)",
       "description": "Future Business Leaders of America (FBLA) is a non-profit career and technical student organization that prepares middle school, high school, and college students for careers in business and leadership.\n\nFBLA focuses on inspiring students to become community-minded business leaders through its core tenets of service, education, and progress. Structured into middle school, high school, collegiate, and professional divisions, the organization serves a vast network of members globally. Participants engage in competitive events at various conference levels and benefit from leadership development, networking, and community service initiatives.",
       "website": "https://www.fbla.org/about/",
-      "icon": " "
+      "icon": " ",
+      "meetingInfo": "WEB mornings at 7:45AM (Room 124)  &  Q Block (Lecture Hall)",
+      "advisors": [
+        "Al Basulto",
+        "Brad Smith",
+        "Linda Vu"
+      ]
+    },
+    {
+      "name": "Distributive Education Clubs of America (DECA)",
+      "description": "DECA is a global, non-profit Career and Technical Student Organization (CTSO) that prepares high school and college students for careers in business and entrepreneurship.\n\nPrimary Mission:\nDECA’s primary mission is to prepare emerging leaders and entrepreneurs in marketing, finance, hospitality, and management globally.\n\nKey Focus Areas & Core Pillars:\n• Co-Curricular Integration: DECA connects directly with classroom instruction, giving teachers practical tools and activities to bring business concepts to life.\n• Applied Learning: Students work on project-based activities, business simulations, case studies, and role-plays to solve real-world problems.\n• Competitive Events: Members compete at district, state, and international levels (such as the International Career Development Conference) in events covering marketing, finance, hospitality, management, and personal financial literacy.\n• Business Connections: Partnerships with corporate and industry leaders provide mentorship, networking, and career insight.\n• School-Based Enterprises: Students help run campus-based stores and businesses to gain hands-on experience in management, inventory, and customer service.",
+      "advisors": [
+        "Rob Nichols"
+      ],
+      "website": "https://www.deca.org/"
     }
   ]
 }
